@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======================================================== */
+/* EFEK TIMBUL SAAT DI-SCROLL                               */
+/* ======================================================== */
+
+@keyframes kailanTimbul {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.timbul-scroll {
+  view-timeline-name: --elemenTimbul;
+  view-timeline-axis: block;
+  animation-timeline: --elemenTimbul;
+  animation-name: kailanTimbul;
+  
+  /* Animasi berproses saat elemen masuk 10% hingga 40% dari bawah layar */
+  animation-range: entry 10% entry 40%; 
+  animation-fill-mode: both;
+}
