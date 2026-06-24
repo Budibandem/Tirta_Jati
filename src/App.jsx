@@ -80,7 +80,7 @@ function App() {
       <div className="bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white text-center py-2.5 px-4 text-xs font-bold tracking-wide shadow-sm">
         ✨ Khusus Pemula: Dapatkan 1x Sesi FREE TRIAL (Latihan Gratis) untuk Kelas Pertama! 
         <a href="https://wa.me/6281238096091?text=Halo%20Coach,%20saya%20tertarik%20tanya%20jadwal%20trial%20renang" className="underline text-white hover:opacity-80 ml-1.5 transition-all inline-block drop-shadow-md">
-          Ambil Slot Gratis via WA →
+          Ambil Slot Gratis→
         </a>
       </div>
 
@@ -101,7 +101,7 @@ function App() {
 
           <div className="hidden md:flex items-center space-x-6 font-bold text-sm text-slate-600">
             <a href="#home" className="hover:text-[#d63384] transition">Beranda</a>
-            <a href="#paket" className="hover:text-[#d63384] transition">Paket Harga</a>
+            <a href="#paket" className="hover:text-[#d63384] transition">Kelas Renang</a>
             <a href="#lokasi" className="hover:text-[#d63384] transition">Lokasi</a>
             <a href="#faq" className="hover:text-[#d63384] transition">FAQ</a>
             <a href="https://wa.me/6281238096091" target="_blank" rel="noopener noreferrer" className="bg-[#7cb5c8] text-white px-5 py-2.5 rounded-full hover:bg-[#689aaa] hover:shadow-md transition tracking-wide text-xs uppercase">
@@ -123,7 +123,7 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-white px-4 pt-2 pb-6 space-y-3 border-t border-slate-100 flex flex-col font-bold">
             <a href="#home" onClick={() => setIsMenuOpen(false)} className="py-2 text-slate-700 hover:text-[#d63384]">Beranda</a>
-            <a href="#paket" onClick={() => setIsMenuOpen(false)} className="py-2 text-slate-700 hover:text-[#d63384]">Paket Harga</a>
+            <a href="#paket" onClick={() => setIsMenuOpen(false)} className="py-2 text-slate-700 hover:text-[#d63384]">Kelas Renang</a>
             <a href="#lokasi" onClick={() => setIsMenuOpen(false)} className="py-2 text-slate-700 hover:text-[#d63384]">Lokasi</a>
             <a href="#faq" onClick={() => setIsMenuOpen(false)} className="py-2 text-slate-700 hover:text-[#d63384]">FAQ</a>
             <a href="https://wa.me/6281238096091" onClick={() => setIsMenuOpen(false)} className="bg-[#7cb5c8] text-white text-center py-3 rounded-xl">Hubungi Coach</a>
@@ -156,10 +156,10 @@ function App() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <a href="#paket" className="w-full sm:w-auto bg-[#d63384] text-white font-black px-8 py-4 rounded-full shadow-xl hover:bg-[#b02a6c] hover:scale-105 transition duration-300 uppercase tracking-wider text-sm">
-                Lihat Pilihan Paket
+                Lihat Pilihan Kelas Renang
               </a>
               <a href="https://wa.me/6281238096091?text=Halo%20Coach,%20saya%20tertarik%20tanya%20jadwal%20trial%20renang" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-full shadow-lg transition duration-300 border border-white/30 backdrop-blur-sm flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
-                <span>💬 Konsultasi via WhatsApp</span>
+                <span>💬 Hubungi Coach</span>
               </a>
             </div>
           </div>
@@ -179,7 +179,7 @@ function App() {
           {[
             { title: "Pelatih Berlisensi", desc: "Dipandu oleh tim pelatih berpengalaman, memiliki teknik kepelatihan, aman, serta profesional.", icon: "🏅" },
             { title: "Kurikulum Terstruktur", desc: "Materi belajar disesuaikan dengan kemampuan murid, mulai dari adaptasi air, hingga koreksi gaya.", icon: "📋" },
-            { title: "Garansi Keamanan", desc: "Fokus utama kami adalah keselamatan murid selama berada di kolam dengan rasio pelatih-murid ideal.", icon: "🛡️" },
+            { title: "Keamanan", desc: "Fokus utama kami adalah keselamatan murid selama berada di kolam dengan rasio pelatih-murid ideal.", icon: "🛡️" },
             { title: "Untuk Semua Tingkatan", desc: "Menerima murid dari berbagai level, mulai dari pemula (nol) hingga program intensif untuk persiapan atlet.", icon: "🎯" } // <-- POIN KE-4 DITAMBAHKAN
           ].map((item, index) => (
             <div key={index} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md hover:border-[#7cb5c8]/30 transition group flex flex-col">
@@ -195,8 +195,8 @@ function App() {
       <section id="paket" className="timbul-scroll opacity-0 translate-y-16 scale-95 transition-all duration-700 ease-out bg-slate-50 py-20 px-4 border-y border-slate-100">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-[#d63384] font-extrabold uppercase tracking-widest text-xs">Pilihan Kelas</span>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-2">Paket & Biaya Kursus</h2>
+            <span className="text-[#d63384] font-extrabold uppercase tracking-widest text-xs">Kelas Renang</span>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-2">Pilihan Kelas Renang</h2>
             <div className="w-16 h-1 bg-[#7cb5c8] mx-auto rounded-full mt-3"></div>
           </div>
 
@@ -249,7 +249,7 @@ function App() {
                 </div>
 
                 <a 
-                  href={`https://wa.me/6281238096091?text=Halo%20Coach,%20saya%20ingin%20mendaftar%20paket%20${encodeURIComponent(pkg.title)}`} 
+                  href={`https://wa.me/6281238096091?text=Halo%20Coach Tirta Jati Swimming Club,%20saya%20ingin%20mendaftar%20les renang%20${encodeURIComponent(pkg.title)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={`mt-auto w-full text-center font-black py-3 rounded-xl text-xs uppercase tracking-wider transition ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-[#7cb5c8] hover:bg-[#689aaa] text-white'}`}
