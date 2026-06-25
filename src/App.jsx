@@ -437,7 +437,7 @@ function App() {
           <div className="text-center sm:text-right font-medium">
             <p>© {new Date().getFullYear()} Tirta Jati SC. All Rights Reserved.</p>
             <p className="text-[10px] text-slate-400 mt-1.5">
-              Created with <span className="text-[#d63384] animate-pulse">❤</span> by Swim Coach IT-@Budibandem
+              Created with <span className="text-[#d63384] animate-pulse">❤</span> by Swim Coach IT @buddz
             </p>
           </div>
         </div>
