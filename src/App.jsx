@@ -6,7 +6,6 @@ function App() {
   const [selectedImg, setSelectedImg] = useState(null);
   
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSchedule, setActiveSchedule] = useState('Weekdays');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,44 +35,44 @@ function App() {
     };
   }, []);
 
-  // --- DATA PAKET ---
+  // --- DATA PAKET (UI 2026: Transparan Split Weekdays & Weekend) ---
   const packages = [
-  {
-    id: 1,
-    title: "Kelas Anak-Anak",
-    sub: "(Kids Class)",
-    desc: "Melatih keberanian di air, pernapasan, hingga bisa menguasai gaya dasar renang.",
-    badge: "Terfavorit",
-    target: "Usia 4 - 14 Tahun",
-    features: ["Metode Belajar Sambil Bermain", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
-    priceInfo: [
-      { label: "Weekdays", days: "Senin, Rabu, atau Jumat" },
-      { label: "Weekend", days: "Sabtu atau Minggu" }
-    ]
-  },
-  {
-    id: 2,
-    title: "Kelas Dewasa",
-    sub: "(Adult Class)",
-    desc: "Cocok untuk pemula yang belum bisa renang sama sekali atau untuk terapi kesehatan.",
-    target: "Usia 15 - 35+ Tahun",
-    features: ["Bebas pilih gaya renang", "Latihan Intensif dengan Suasana Santai", "Durasi latihan 60 Menit"],
-    priceInfo: [
-      { label: "Weekdays", days: "Senin, Rabu, atau Jumat" },
-      { label: "Weekend", days: "Sabtu atau Minggu" }
-    ]
-  },
-  {
-    id: 3,
-    title: "Privat",
-    sub: "(1-on-1 VIP)",
-    desc: "Satu pelatih khusus untuk Anda. Progres jauh lebih cepat, intensif, dan personal.",
-    badge: "Premium",
-    target: "Semua Usia",
-    features: ["Bebas pilih gaya renang", "Fokus koreksi teknik detail", "Waktu dan hari fleksibel"],
-    isPrivate: true,
-  }
-];
+    {
+      id: 1,
+      title: "Kelas Anak-Anak",
+      sub: "(Kids Class)",
+      desc: "Melatih keberanian di air, pernapasan, hingga bisa menguasai gaya dasar renang.",
+      badge: "Terfavorit",
+      target: "Usia 4 - 14 Tahun",
+      isSplit: true, // Flag untuk membagi tampilan weekdays/weekend
+      weekdays: { days: "Senin, Rabu, Jumat", session: "4x Sesi / Bulan" },
+      weekend: { days: "Sabtu & Minggu", session: "4x Sesi / Bulan" },
+      features: ["Metode Belajar Sambil Bermain", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
+    },
+    {
+      id: 2,
+      title: "Kelas Dewasa",
+      sub: "(Adult Class)",
+      desc: "Cocok untuk pemula yang belum bisa renang sama sekali atau untuk terapi kesehatan.",
+      target: "Usia 15 - 35+ Tahun",
+      isSplit: true,
+      weekdays: { days: "Senin, Rabu, Jumat", session: "4x Sesi / Bulan" },
+      weekend: { days: "Sabtu & Minggu", session: "4x Sesi / Bulan" },
+      features: ["Bebas pilih gaya renang", "Latihan Intensif dengan Suasana Santai", "Durasi latihan 60 Menit"],
+    },
+    {
+      id: 3,
+      title: "Privat",
+      sub: "(1-on-1 VIP)",
+      desc: "Satu pelatih khusus untuk Anda. Progres jauh lebih cepat, intensif, dan personal.",
+      badge: "Premium",
+      target: "Semua Usia",
+      isSplit: false, // Privat biasanya fleksibel tidak kaku terbagi
+      flexibleSchedule: "Waktu & Hari Fleksibel (Bebas Atur)",
+      system: "1 Murid : 1 Pelatih",
+      features: ["Bebas pilih gaya renang", "Fokus koreksi teknik detail", "Jadwal diatur sesuai kesepakatan"],
+    }
+  ];
 
   const faqs = [
     { q: "Apakah kalau belum bisa renang sama sekali bisa ikut?", a: "Tentu saja! Mayoritas murid kami mulai dari nol (takut air/tidak bisa mengapung). Pelatih kami dilatih dengan pendekatan sabar untuk membangun kepercayaan diri Anda di dalam air." },
@@ -91,7 +90,7 @@ function App() {
         <div className={`bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white text-center px-4 font-medium tracking-wide origin-top transition-all duration-500 overflow-hidden flex items-center justify-center ${isScrolled ? 'h-0 opacity-0' : 'h-10 text-xs opacity-100'}`}>
           Khusus Pemula: Dapatkan 1x Sesi FREE TRIAL untuk Kelas Pertama! 
           <a href="https://wa.me/6281238096091" className="underline text-white/90 hover:text-white ml-2 transition-colors font-semibold">
-            Ambil Slot &rarr;
+            Ambil Slot →
           </a>
         </div>
 
@@ -127,7 +126,7 @@ function App() {
                 <a href="#paket" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors">Program</a>
                 <a href="#lokasi" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors">Lokasi</a>
                 <a href="#faq" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors mb-4">FAQ</a>
-                <a href="https://wa.me/6281238096091" onClick={() => setIsMenuOpen(false)} className="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold shadow-md">Hubungi Coach &rarr;</a>
+                <a href="https://wa.me/6281238096091" onClick={() => setIsMenuOpen(false)} className="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold shadow-md">Hubungi Coach →</a>
               </div>
             )}
           </nav>
@@ -170,7 +169,7 @@ function App() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { title: "Pelatih Berlisensi", desc: "Dipandu oleh tim pelatih berpengalaman, menguasai teknik kepelatihan dengan pendekatan aman dan profesional.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg> },
+            { title: "Pelatih Berlisensi", desc: "Dipandu oleh tim pelatih berpengalaman, menguasai teknik kepelatihan dengan pendekatan aman dan profesional.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z" /></svg> },
             { title: "Kurikulum Terstruktur", desc: "Materi belajar disesuaikan dengan kemampuan murid, mulai dari tahap adaptasi air hingga koreksi gaya lanjutan.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg> },
             { title: "Prioritas Keamanan", desc: "Fokus utama kami adalah keselamatan murid selama berada di kolam dengan rasio pengawasan pelatih yang ideal.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg> },
             { title: "Semua Tingkatan", desc: "Menerima murid dari berbagai level; mulai dari pemula hingga program intensif perbaikan teknik dan persiapan atlet.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> }
@@ -187,28 +186,19 @@ function App() {
       </section>
 
       {/* =========================================
-          PAKET HARGA (UI 2026 - BENTO STYLE)
+          PAKET HARGA (UI 2026 - SPLIT BENTO GRID)
       ========================================= */}
       <section id="paket" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out bg-slate-50/50 py-24 px-4 border-y border-slate-100">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="bg-[#d63384]/10 text-[#d63384] px-4 py-1.5 rounded-full font-bold uppercase tracking-wider text-xs">Pilih Kelasmu</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-6 tracking-tight">Program Latihan Renang</h2>
-            <p className="text-slate-500 mt-4 text-base max-w-lg mx-auto">Silakan pilih jadwal yang sesuai dengan Anda di bawah ini.</p>
+            <p className="text-slate-500 mt-4 text-base max-w-lg mx-auto">Silakan pilih jadwal yang sesuai dengan Anda di bawah ini..</p>
           </div>
 
-          {/* TOGGLE JADWAL */}
-          <div className="flex justify-center mb-16">
-            <div className="bg-white p-1.5 rounded-full inline-flex relative shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100">
-              <div className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#7cb5c8] shadow-md rounded-full transition-transform duration-500 ease-out ${activeSchedule === 'Weekend' ? 'translate-x-[calc(100%+6px)]' : 'translate-x-0'}`}></div>
-              <button onClick={() => setActiveSchedule('Weekdays')} className={`relative z-10 w-32 py-2.5 rounded-full text-sm font-bold transition-colors duration-300 ${activeSchedule === 'Weekdays' ? 'text-white' : 'text-slate-500 hover:text-slate-700'}`}>Weekdays</button>
-              <button onClick={() => setActiveSchedule('Weekend')} className={`relative z-10 w-32 py-2.5 rounded-full text-sm font-bold transition-colors duration-300 ${activeSchedule === 'Weekend' ? 'text-white' : 'text-slate-500 hover:text-slate-700'}`}>Weekend</button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             {packages.map((pkg) => (
-              <div key={pkg.id} className={`group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2 ${pkg.badge ? 'border-2 border-[#d63384]/20 shadow-[0_20px_40px_-15px_rgba(214,51,132,0.15)] md:-translate-y-4' : 'border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]'}`}>
+              <div key={pkg.id} className={`group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2 ${pkg.badge ? 'border-2 border-[#d63384]/20 shadow-[0_20px_40px_-15px_rgba(214,51,132,0.15)] lg:-translate-y-4' : 'border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]'}`}>
                 
                 {pkg.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#d63384] to-[#f472b6] text-white text-xs font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">
@@ -221,44 +211,62 @@ function App() {
                   <span className="text-[#7cb5c8] font-bold text-sm block mt-1">{pkg.sub}</span>
                 </div>
 
-                <p className="text-slate-500 text-sm text-center leading-relaxed mb-6 h-16">{pkg.desc}</p>
+                <p className="text-slate-500 text-sm text-center leading-relaxed mb-6 h-14">{pkg.desc}</p>
                 
-                {/* INFO BOX BENTO */}
-                <div className="bg-slate-50 rounded-3xl p-5 mb-8 space-y-3 border border-slate-100">
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
-                    <span className="text-slate-400 text-[11px] uppercase tracking-wider font-bold flex items-center gap-2"><svg className="w-4 h-4 text-[#d63384]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> Untuk Siapa?</span>
-                    <span className="text-slate-800 text-xs font-extrabold text-right">{pkg.target}</span>
-                  </div>
-                  
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
-                    <span className="text-slate-400 text-[11px] uppercase tracking-wider font-bold flex items-center gap-2"><svg className="w-4 h-4 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg> Hari Latihan</span>
-                    <span className="text-slate-800 text-xs font-bold text-right bg-white px-3 py-1 rounded-full shadow-sm border border-slate-100">
-                      {pkg.isPrivate ? "Pilih Sendiri" : pkg.priceInfo.find(p => p.label === activeSchedule).days}
-                    </span>
-                  </div>
+                {/* TARGET USIA */}
+                <div className="flex justify-between items-center pb-3 mb-4 border-b border-slate-100">
+                  <span className="text-slate-400 text-[11px] uppercase tracking-wider font-bold flex items-center gap-1.5">
+                    <svg className="w-4 h-4 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    Target
+                  </span>
+                  <span className="text-slate-800 text-xs font-extrabold bg-slate-100 px-3 py-1 rounded-full">{pkg.target}</span>
+                </div>
 
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400 text-[11px] uppercase tracking-wider font-bold flex items-center gap-2"><svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> Sistem</span>
-                    <span className="text-slate-800 text-xs font-bold text-right">
-                      {pkg.isPrivate ? "1 Murid : 1 Pelatih" : "4x Pertemuan / Bulan"}
-                    </span>
-                  </div>
+                {/* AREA BENTO JADWAL (SPLIT WEEKDAYS & WEEKEND - NO TOGGLE) */}
+                <div className="bg-slate-50 rounded-3xl p-4 mb-6 space-y-3 border border-slate-100">
+                  {pkg.isSplit ? (
+                    <div className="grid grid-cols-2 gap-3">
+                      {/* Kolom Weekdays */}
+                      <div className="bg-white p-3 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
+                        <div>
+                          <span className="text-[#7cb5c8] text-[10px] font-black uppercase tracking-wider block">🗓️ Weekdays</span>
+                          <span className="text-slate-700 text-xs font-semibold block mt-2 leading-tight">{pkg.weekdays.days}</span>
+                        </div>
+                        <span className="text-[#d63384] text-[11px] font-bold block mt-3 bg-pink-50 text-center py-1 rounded-lg">{pkg.weekdays.session}</span>
+                      </div>
+                      
+                      {/* Kolom Weekend */}
+                      <div className="bg-white p-3 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
+                        <div>
+                          <span className="text-[#d63384] text-[10px] font-black uppercase tracking-wider block">☀️ Weekend</span>
+                          <span className="text-slate-700 text-xs font-semibold block mt-2 leading-tight">{pkg.weekend.days}</span>
+                        </div>
+                        <span className="text-[#d63384] text-[11px] font-bold block mt-3 bg-pink-50 text-center py-1 rounded-lg">{pkg.weekend.session}</span>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Tampilan Kolom Tunggal Fleksibel (Untuk Kelas Privat) */
+                    <div className="bg-white p-4 rounded-2xl border border-slate-200/60 shadow-sm text-center">
+                      <span className="text-emerald-600 text-[10px] font-black uppercase tracking-wider block">✨ Kelas VIP</span>
+                      <span className="text-slate-800 text-sm font-bold block mt-2">{pkg.flexibleSchedule}</span>
+                      <span className="text-slate-500 text-xs block mt-1">{pkg.system}</span>
+                    </div>
+                  )}
                 </div>
                 
-                <ul className="space-y-4 mb-8 text-sm text-slate-600 font-medium text-left flex-grow">
+                <ul className="space-y-3 mb-8 text-sm text-slate-600 font-medium text-left flex-grow">
                   {pkg.features.map((feat, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
                       </div>
-                      <span>{feat}</span>
+                      <span className="text-xs sm:text-sm text-slate-600">{feat}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* EDIT BAGIAN INI: Link WhatsApp dinamis sesuai format kalimat baru */}
                 <a href={`https://wa.me/6281238096091?text=${encodeURIComponent(`halo coach tirta jati swimming club, saya ingin daftar kelas renang ${pkg.title}`)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
-                  Pilih Kelas Ini &rarr;
+                  Pilih Kelas Ini →
                 </a>
               </div>
             ))}
@@ -278,7 +286,7 @@ function App() {
             <span className="text-[#7cb5c8] font-semibold uppercase tracking-widest text-xs mb-3 block">Mengenal Coach</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">Coach yang Supportif & Profesional</h3>
             <div className="space-y-4 text-slate-300 font-light text-sm sm:text-base leading-relaxed">
-              <p>Kami percaya bahwa setiap orang memiliki ritme belajar yang berbeda. Oleh karena itu, para pelatih kami dibekali dengan pendekatan psikologis untuk membimbing dengan sabar, telaten, dan suportif.</p>
+              <p>Kami percaya bahwa setiap orang memiliki ritme belajar yang berbeda. Oleh karena itu, para pelatih kami dibekali dengan pendekatan psikologis untuk membimbing dengan sabar, telaten, and suportif.</p>
               <p>Hal ini memastikan anak-anak maupun orang dewasa bisa berkembang dan mengatasi ketakutan terhadap air dengan rasa percaya diri yang tinggi.</p>
             </div>
           </div>
@@ -291,7 +299,6 @@ function App() {
       <section id="lokasi" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="bg-white rounded-[3rem] border border-slate-200 p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col md:flex-row gap-8 items-center">
           
-          {/* Teks Info Lokasi */}
           <div className="w-full md:w-1/2 md:pr-8">
             <span className="bg-[#7cb5c8]/10 text-[#7cb5c8] px-4 py-1.5 rounded-full font-bold uppercase tracking-wider text-xs">Lokasi Kami</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-6 mb-4">Pusat Latihan Renang</h2>
@@ -315,17 +322,11 @@ function App() {
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kantin</div>
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kamar Bilas Bersih</div>
             </div>
-            
-            {/* <a href="https://maps.app.goo.gl/XKBXLgm1ffGmpRwH9" target="_blank" rel="noopener noreferrer" className="inline-flex w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-full text-sm transition-colors items-center justify-center gap-2">
-              Buka di Aplikasi Maps
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-            </a> */}
           </div>
 
-          {/* Iframe Embed Maps HTML */}
           <div className="w-full md:w-1/2 h-[350px] md:h-[450px] relative rounded-[2rem] overflow-hidden shadow-inner border-4 border-slate-50">
              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.628521292054!2d115.33377257501304!3d-8.535397291507538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2179abf515f03%3A0x147e606d5109e17e!2sTirta%20Jati%20Swimming%20Club!5e0!3m2!1sid!2sid!4v1782458350332!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.628521292054!2d115.33377257501304!3d-8.535397291507538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2179abf515f03%3A0x147e606d5109e17e!2sTirta%20Jati%20Swimming%20Club!5e0!3m2!1sid!2sid!4v1782458350332!5m2!1sid!2sid" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -390,7 +391,7 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
+       {/* =========================================
           FOOTER
       ========================================= */}
       <footer className="bg-slate-50 border-t border-slate-100 text-slate-500 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
@@ -421,16 +422,6 @@ function App() {
           <p className="text-xs">Created with <span className="text-[#d63384]">❤</span> by swim coach @buddz</p>
         </div>
       </footer>
-
-      {/* MODAL GAMBAR */}
-      {selectedImg && (
-        <div className="fixed inset-0 bg-slate-900/90 z-[100] flex items-center justify-center p-4 backdrop-blur-sm transition-opacity" onClick={() => setSelectedImg(null)}>
-          <div className="relative max-w-4xl w-full flex flex-col items-center">
-            <button className="absolute -top-12 right-0 text-white/70 hover:text-white w-10 h-10 flex items-center justify-center text-3xl transition-colors focus:outline-none" onClick={() => setSelectedImg(null)}>×</button>
-            <img src={selectedImg} alt="Pratinjau" className="max-w-full max-h-[85vh] rounded-xl object-contain shadow-2xl" onClick={(e) => e.stopPropagation()} />
-          </div>
-        </div>
-      )}
 
     </div>
   );
