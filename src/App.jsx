@@ -312,7 +312,7 @@ function App() {
             <div className="grid grid-cols-2 gap-4 text-sm text-slate-700 font-medium mb-8">
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kolam Olympic</div>
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Area Parkir</div>
-              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kantin / Ruang Tunggu</div>
+              <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kantin</div>
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kamar Bilas Bersih</div>
             </div>
             
