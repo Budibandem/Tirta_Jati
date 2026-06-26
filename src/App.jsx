@@ -256,7 +256,7 @@ function App() {
                   ))}
                 </ul>
 
-                <a href={`https://wa.me/6281238096091?text=Halo%20Coach,%20saya%20ingin%20daftar%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
+                <a href={`https://wa.me/6281238096091?text=Halo%20Coach Tirta Jati Swimming Club,%20saya%20ingin%20daftar renang%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
                   Pilih Kelas Ini &rarr;
                 </a>
               </div>
