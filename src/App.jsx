@@ -45,7 +45,7 @@ function App() {
     desc: "Melatih keberanian di air, pernapasan, hingga bisa menguasai gaya dasar renang.",
     badge: "Terfavorit",
     target: "Usia 4 - 14 Tahun",
-    features: ["Pendekatan Sabar & Ceria", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
+    features: ["Metode Belajar Sambil Bermain", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
     priceInfo: [
       { label: "Weekdays", days: "Senin, Rabu, atau Jumat" },
       { label: "Weekend", days: "Sabtu atau Minggu" }
@@ -57,7 +57,7 @@ function App() {
     sub: "(Adult Class)",
     desc: "Cocok untuk pemula yang belum bisa renang sama sekali atau untuk terapi kesehatan.",
     target: "Usia 15 - 35+ Tahun",
-    features: ["Bebas pilih gaya renang", "Pendekatan rileks anti-panik", "Durasi latihan 60 Menit"],
+    features: ["Bebas pilih gaya renang", "Latihan Intensif dengan Suasana Santai", "Durasi latihan 60 Menit"],
     priceInfo: [
       { label: "Weekdays", days: "Senin, Rabu, atau Jumat" },
       { label: "Weekend", days: "Sabtu atau Minggu" }
@@ -173,7 +173,7 @@ function App() {
             { title: "Pelatih Berlisensi", desc: "Dipandu oleh tim pelatih berpengalaman, menguasai teknik kepelatihan dengan pendekatan aman dan profesional.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg> },
             { title: "Kurikulum Terstruktur", desc: "Materi belajar disesuaikan dengan kemampuan murid, mulai dari tahap adaptasi air hingga koreksi gaya lanjutan.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg> },
             { title: "Prioritas Keamanan", desc: "Fokus utama kami adalah keselamatan murid selama berada di kolam dengan rasio pengawasan pelatih yang ideal.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg> },
-            { title: "Semua Tingkatan", desc: "Menerima murid dari berbagai level; mulai dari pemula hingga program intensif perbaikan teknik.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> }
+            { title: "Semua Tingkatan", desc: "Menerima murid dari berbagai level; mulai dari pemula hingga program intensif perbaikan teknik dan persiapan atlet.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> }
           ].map((item, index) => (
             <div key={index} className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-[#7cb5c8]/30 transition-all duration-300 flex flex-col group">
               <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#7cb5c8]/10 transition-colors">
@@ -194,7 +194,7 @@ function App() {
           <div className="text-center mb-12">
             <span className="bg-[#d63384]/10 text-[#d63384] px-4 py-1.5 rounded-full font-bold uppercase tracking-wider text-xs">Pilih Kelasmu</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-6 tracking-tight">Program Latihan Renang</h2>
-            <p className="text-slate-500 mt-4 text-base max-w-lg mx-auto">Silakan pilih jadwal yang sesuai dengan kesibukan Anda di bawah ini.</p>
+            <p className="text-slate-500 mt-4 text-base max-w-lg mx-auto">Silakan pilih jadwal yang sesuai dengan Anda di bawah ini.</p>
           </div>
 
           {/* TOGGLE JADWAL */}
@@ -256,7 +256,8 @@ function App() {
                   ))}
                 </ul>
 
-                <a href={`https://wa.me/6281238096091?text=Halo%20Coach Tirta Jati Swimming Club,%20saya%20ingin%20daftar renang%20${encodeURIComponent(pkg.title)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
+                {/* EDIT BAGIAN INI: Link WhatsApp dinamis sesuai format kalimat baru */}
+                <a href={`https://wa.me/6281238096091?text=${encodeURIComponent(`halo coach tirta jati swimming club, saya ingin daftar kelas renang ${pkg.title}`)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
                   Pilih Kelas Ini &rarr;
                 </a>
               </div>
@@ -315,16 +316,16 @@ function App() {
               <div className="flex items-center gap-3"><div className="w-2 h-2 bg-[#7cb5c8] rounded-full"></div> Kamar Bilas Bersih</div>
             </div>
             
-            <a href="https://maps.app.goo.gl/XKBXLgm1ffGmpRwH9" target="_blank" rel="noopener noreferrer" className="inline-flex w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-full text-sm transition-colors items-center justify-center gap-2">
+            {/* <a href="https://maps.app.goo.gl/XKBXLgm1ffGmpRwH9" target="_blank" rel="noopener noreferrer" className="inline-flex w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-full text-sm transition-colors items-center justify-center gap-2">
               Buka di Aplikasi Maps
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-            </a>
+            </a> */}
           </div>
 
           {/* Iframe Embed Maps HTML */}
           <div className="w-full md:w-1/2 h-[350px] md:h-[450px] relative rounded-[2rem] overflow-hidden shadow-inner border-4 border-slate-50">
              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.628521292054!2d115.33377257501304!3d-8.535397291507538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2179abf515f03%3A0x147e606d5109e17e!2sTirta%20Jati%20Swimming%20Club!5e0!3m2!1sid!2sid!4v1782458350332!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.628521292054!2d115.33377257501304!3d-8.535397291507538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2179abf515f03%3A0x147e606d5109e17e!2sTirta%20Jati%20Swimming%20Club!5e0!3m2!1sid!2sid!4v1782458350332!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -390,7 +391,7 @@ function App() {
       </section>
 
       {/* =========================================
-          FOOTER (Kembali ke versi terang + Icon IG)
+          FOOTER
       ========================================= */}
       <footer className="bg-slate-50 border-t border-slate-100 text-slate-500 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-200 pb-16 mb-12">
@@ -406,7 +407,6 @@ function App() {
             <p className="text-xl font-serif text-slate-900 italic">Tirta Jati Swimming Club</p>
             <p className="font-light text-sm">Gianyar, Bali, Indonesia.</p>
             
-            {/* LINK INSTAGRAM DENGAN ICON SVG DI FOOTER TERANG */}
             <a href="https://instagram.com/tirta.jati.swimming.club" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-slate-500 hover:text-[#d63384] transition-colors">
               <svg className="w-5 h-5 text-slate-400 group-hover:text-[#d63384] transition-colors" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
