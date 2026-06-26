@@ -397,7 +397,7 @@ function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-200 pb-16 mb-12">
           <div>
             <h2 className="text-4xl font-serif text-slate-900 mb-6">Mulai perjalanan Anda.</h2>
-            <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk menguasai air dengan percaya diri bersama pelatih profesional kami.</p>
+            <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk belajar renang dengan percaya diri bersama pelatih profesional kami.</p>
             <a href="https://wa.me/6281238096091" className="inline-block bg-[#d63384] text-white px-8 py-3 rounded-full font-medium hover:bg-[#b02a6c] transition-colors">
               Chat WhatsApp
             </a>
