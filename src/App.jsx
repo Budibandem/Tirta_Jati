@@ -6,32 +6,40 @@ function App() {
   const [selectedImg, setSelectedImg] = useState(null);
   
   const [isScrolled, setIsScrolled] = useState(false);
+  const [clickedFeature, setClickedFeature] = useState(null);
 
   useEffect(() => {
+    // 1. Handle Navbar Scroll
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
+    // 2. Handle Animasi Timbul
     const observer = new IntersectionObserver(
-      (entries, observer) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
             entry.target.classList.remove('opacity-0', 'translate-y-12');
-            observer.unobserve(entry.target);
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            obs.unobserve(entry.target); // Berhenti mengamati setelah muncul
           }
         });
       },
-      { threshold: 0.1, rootMargin: "-50px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    const elements = document.querySelectorAll('.timbul-scroll');
-    elements.forEach((el) => observer.observe(el));
+    // Beri jeda 100ms agar DOM ter-render penuh sebelum ditangkap querySelector
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('.timbul-scroll');
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
 
+    // Cleanup function
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      elements.forEach((el) => observer.unobserve(el));
+      clearTimeout(timer);
+      observer.disconnect(); 
     };
   }, []);
 
@@ -174,9 +182,27 @@ function App() {
             { title: "Prioritas Keamanan", desc: "Fokus utama kami adalah keselamatan murid selama berada di kolam dengan rasio pengawasan pelatih yang ideal.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg> },
             { title: "Semua Tingkatan", desc: "Menerima murid dari berbagai level; mulai dari pemula hingga program intensif perbaikan teknik dan persiapan atlet.", icon: <svg className="w-7 h-7 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> }
           ].map((item, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-[#7cb5c8]/30 transition-all duration-300 flex flex-col group">
-              <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#7cb5c8]/10 transition-colors">
-                {item.icon}
+            <div 
+              key={index} 
+              onClick={() => {
+                setClickedFeature(index);
+                // Kembalikan ke normal setelah 300ms
+                setTimeout(() => setClickedFeature(null), 300);
+              }}
+              className={`bg-white p-8 rounded-2xl flex flex-col group cursor-pointer transition-all duration-300 ease-out transform
+                ${clickedFeature === index 
+                  ? 'scale-105 shadow-[0_20px_40px_-15px_rgba(124,181,200,0.5)] border-2 border-[#7cb5c8] z-10' 
+                  : 'border border-slate-100 hover:border-[#7cb5c8]/30 hover:-translate-y-2 hover:shadow-lg'
+                }
+              `}
+            >
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300
+                ${clickedFeature === index ? 'bg-[#7cb5c8] text-white' : 'bg-slate-50 group-hover:bg-[#7cb5c8]/10'}
+              `}>
+                {/* Mengubah warna icon saat diklik */}
+                {React.cloneElement(item.icon, { 
+                  className: `w-7 h-7 transition-colors duration-300 ${clickedFeature === index ? 'text-white' : 'text-[#7cb5c8]'}` 
+                })}
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed font-light">{item.desc}</p>
@@ -274,14 +300,41 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
+     {/* =========================================
           COACH SECTION
       ========================================= */}
       <section className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-5xl mx-auto px-4 py-24 border-b border-slate-100">
-        <div className="bg-[#182a33] rounded-3xl overflow-hidden text-white flex flex-col md:flex-row items-stretch shadow-lg">
-          <div className="w-full md:w-2/5 relative min-h-[300px] bg-slate-800">
-            <img src="/img/coachimg1.jpg" alt="Coach Renang" className="absolute inset-0 w-full h-full object-cover object-top" />
+        <div 
+          onClick={() => {
+            // Memicu efek "timbul" (scale)
+            setClickedFeature("coach-card");
+            setTimeout(() => setClickedFeature(null), 300);
+          }}
+          className={`bg-[#182a33] rounded-3xl overflow-hidden text-white flex flex-col md:flex-row items-stretch shadow-lg cursor-pointer transition-all duration-300 ease-out transform
+            ${clickedFeature === "coach-card" 
+              ? 'scale-[1.02] shadow-[0_20px_50px_-15px_rgba(24,42,51,0.5)] border-2 border-[#7cb5c8]' 
+              : 'hover:shadow-2xl hover:-translate-y-1'
+            }
+          `}
+        >
+          {/* Bagian Foto (Klik untuk Zoom) */}
+          <div 
+            className="w-full md:w-2/5 relative min-h-[300px] bg-slate-800 group"
+            onClick={(e) => {
+              e.stopPropagation(); // Mencegah klik foto memicu klik card
+              setSelectedImg("/img/coachimg1.jpg");
+            }}
+          >
+            <img src="/img/coachimg1.jpg" alt="Coach Renang" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            {/* Ikon Zoom */}
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+              <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </div>
           </div>
+
+          {/* Bagian Teks */}
           <div className="p-10 md:p-14 w-full md:w-3/5 flex flex-col justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
             <span className="text-[#7cb5c8] font-semibold uppercase tracking-widest text-xs mb-3 block">Mengenal Coach</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">Coach yang Supportif & Profesional</h3>
@@ -292,7 +345,6 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* =========================================
           LOKASI SECTION (DENGAN GOOGLE MAPS)
       ========================================= */}
@@ -391,14 +443,14 @@ function App() {
         </div>
       </section>
 
-       {/* =========================================
+      {/* =========================================
           FOOTER
       ========================================= */}
       <footer className="bg-slate-50 border-t border-slate-100 text-slate-500 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-200 pb-16 mb-12">
           <div>
             <h2 className="text-4xl font-serif text-slate-900 mb-6">Mulai perjalanan Anda.</h2>
-            <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk belajar renang dengan percaya diri bersama pelatih profesional kami.</p>
+            <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk belajar berenang dengan percaya diri bersama pelatih profesional kami.</p>
             <a href="https://wa.me/6281238096091" className="inline-block bg-[#d63384] text-white px-8 py-3 rounded-full font-medium hover:bg-[#b02a6c] transition-colors">
               Chat WhatsApp
             </a>
@@ -422,6 +474,34 @@ function App() {
           <p className="text-xs">Created with <span className="text-[#d63384]">❤</span> by swim coach @buddz</p>
         </div>
       </footer>
+      
+      {/* =========================================
+          MODAL GALERI (LIGHTBOX ZOOM)
+      ========================================= */}
+      {selectedImg && (
+        <div 
+          className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer opacity-100 transition-opacity duration-300"
+          onClick={() => setSelectedImg(null)}
+        >
+          {/* Tombol Close (X) */}
+          <button 
+            className="absolute top-6 right-6 p-2 bg-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all focus:outline-none"
+            onClick={() => setSelectedImg(null)}
+          >
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          {/* Gambar yang di-zoom */}
+          <img 
+            src={selectedImg} 
+            alt="Dokumentasi Zoom" 
+            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl cursor-default object-contain" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
 
     </div>
   );
