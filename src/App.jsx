@@ -91,13 +91,18 @@ function App() {
   return (
     <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900 pt-20">
       
-      {/* =========================================
+     {/* =========================================
           HEADER WRAPPER
       ========================================= */}
       <div className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div className={`bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white text-center px-4 font-medium tracking-wide origin-top transition-all duration-500 overflow-hidden flex items-center justify-center ${isScrolled ? 'h-0 opacity-0' : 'h-10 text-xs opacity-100'}`}>
-          Khusus Pemula: Dapatkan 1x Sesi FREE TRIAL untuk Kelas Pertama! 
-          <a href="https://wa.me/6281238096091" className="underline text-white/90 hover:text-white ml-2 transition-colors font-semibold">
+          <span>Khusus Pemula: Dapatkan 1x Sesi FREE TRIAL untuk Kelas Pertama!</span>
+          <a 
+            href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya pemula dan ingin menanyakan tentang sesi Free Trial. Mohon infonya ya, terima kasih!")}`}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="underline text-white/90 hover:text-white ml-2 transition-colors font-semibold"
+          >
             Ambil Slot →
           </a>
         </div>
@@ -112,15 +117,21 @@ function App() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
-              <a href="#home" className="hover:text-[#d63384] transition-colors">Beranda</a>
-              <a href="#paket" className="hover:text-[#d63384] transition-colors">Program</a>
-              <a href="#lokasi" className="hover:text-[#d63384] transition-colors">Lokasi</a>
-              <a href="#faq" className="hover:text-[#d63384] transition-colors">FAQ</a>
-              <a href="https://wa.me/6281238096091" target="_blank" rel="noopener noreferrer" className={`text-white px-5 py-2.5 rounded-full transition-all duration-300 text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled ? 'bg-[#d63384] hover:bg-[#b02a6c]' : 'bg-slate-900 hover:bg-slate-800'}`}>
-                Hubungi Coach
-              </a>
-            </div>
+           <div className="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+  <a href="#home" className="hover:text-[#d63384] transition-colors">Beranda</a>
+  <a href="#paket" className="hover:text-[#d63384] transition-colors">Program</a>
+  <a href="#lokasi" className="hover:text-[#d63384] transition-colors">Lokasi</a>
+  <a href="#faq" className="hover:text-[#d63384] transition-colors">FAQ</a>
+  
+  <a 
+    href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className={`text-white px-5 py-2.5 rounded-full transition-all duration-300 text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled ? 'bg-[#d63384] hover:bg-[#b02a6c]' : 'bg-slate-900 hover:bg-slate-800'}`}
+  >
+    Hubungi Coach
+  </a>
+</div>
 
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden focus:outline-none p-2 text-slate-500 hover:text-[#d63384] transition-colors">
               <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -496,9 +507,14 @@ function App() {
           <div>
             <h2 className="text-4xl font-serif text-slate-900 mb-6">Mulai perjalanan Anda.</h2>
             <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk belajar berenang dengan percaya diri bersama pelatih profesional kami.</p>
-            <a href="https://wa.me/6281238096091" className="inline-block bg-[#d63384] text-white px-8 py-3 rounded-full font-medium hover:bg-[#b02a6c] transition-colors">
-              Chat WhatsApp
-            </a>
+            <a 
+  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="inline-block bg-[#d63384] text-white px-8 py-3 rounded-full font-medium hover:bg-[#b02a6c] transition-colors"
+>
+  Chat WhatsApp
+</a>
           </div>
           
           <div className="flex flex-col md:items-end justify-end space-y-4">
