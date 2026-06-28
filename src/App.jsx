@@ -172,26 +172,56 @@ function App() {
         </div>
       </div>
 
-      {/* =========================================
-          HERO SECTION (FORCE FULL WIDTH)
-      ========================================= */}
-      <header id="home" className="relative py-24 md:py-32 px-4 overflow-hidden -mt-20" style={{ backgroundColor: '#7cb5c8', backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(124, 181, 200, 1) 0%, rgba(74, 140, 161, 1) 90%)' }}>
-        
-        {/* ... (elemen dekorasi circle tetap di sini) ... */}
+     {/* =========================================
 
-        {/* PERUBAHAN UTAMA: Gunakan mx-4 atau mx-auto dengan gap yang lebih kecil */}
-        <div className="relative w-full px-4 md:px-12 z-10 bg-white/10 backdrop-blur-md p-8 md:p-16 rounded-[3rem] border border-white/20 shadow-2xl mt-16">
+          HERO SECTION
+
+      ========================================= */}
+
+      <header id="home" className="relative py-24 md:py-32 px-4 overflow-hidden -mt-20" style={{ backgroundColor: '#7cb5c8', backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(124, 181, 200, 1) 0%, rgba(74, 140, 161, 1) 90%)' }}>
+
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
+
+
+
+        <div className="relative max-w-4xl mx-auto z-10 bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[3rem] border border-white/20 shadow-2xl mt-16">
+
           <div className="text-center">
+
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight text-white drop-shadow-sm">
+
               Belajar Renang Jadi Mudah, <br/>
+
               <span className="text-[#d63384] bg-white/95 px-5 py-2 rounded-full border border-pink-100 inline-block mt-3 shadow-xl">Aman & Menyenangkan!</span>
+
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-10 text-white/90 max-w-4xl mx-auto leading-relaxed font-medium">
+
+            <p className="text-base sm:text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed font-medium">
+
               Metode kepelatihan terstruktur untuk segala usia. Dipandu langsung oleh pelatih profesional berlisensi untuk membantu Anda menguasai teknik renang dengan cepat.
+
             </p>
-            {/* ... (tombol tetap sama) ... */}
+
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+
+              <a href="#paket" className="w-full sm:w-auto bg-[#d63384] text-white font-black px-8 py-4 rounded-full shadow-xl hover:bg-[#b02a6c] hover:scale-105 transition duration-300 uppercase tracking-wider text-sm">Lihat Pilihan Kelas</a>
+
+              <a 
+  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya tertarik untuk menanyakan detail program kelas renang. Boleh minta informasinya? Terima kasih!")}`}
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-full shadow-lg transition duration-300 border border-white/30 backdrop-blur-sm flex items-center justify-center gap-2 text-sm uppercase tracking-wider"
+>
+  <span>💬 Hubungi Coach</span>
+</a>
+            </div>
+
           </div>
+
         </div>
+
       </header>
 
       {/* =========================================
