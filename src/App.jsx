@@ -9,13 +9,13 @@ function App() {
   const [clickedFeature, setClickedFeature] = useState(null);
 
   useEffect(() => {
-    // 1. Handle Navbar Scroll
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
-    // 2. Handle Animasi Timbul
+  
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -29,13 +29,13 @@ function App() {
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    // Beri jeda 100ms agar DOM ter-render penuh sebelum ditangkap querySelector
+   
     const timer = setTimeout(() => {
       const elements = document.querySelectorAll('.timbul-scroll');
       elements.forEach((el) => observer.observe(el));
     }, 100);
 
-    // Cleanup function
+   
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
@@ -43,7 +43,7 @@ function App() {
     };
   }, []);
 
-  // --- DATA PAKET (UI 2026: Transparan Split Weekdays & Weekend) ---
+ 
   const packages = [
     {
       id: 1,
@@ -91,12 +91,10 @@ function App() {
   return (
     <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900 pt-20">
       
-     {/* =========================================
-          HEADER WRAPPER
-      ========================================= */}
+    
      <div className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
   
- {/* Banner Promo - Full Clickable (Tanpa tombol, seluruh area bisa diklik) */}
+
 <a 
   href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya tertarik dengan penawaran Free Trial untuk pemula. Mohon info pendaftarannya, terima kasih!")}`}
   target="_blank" 
@@ -106,12 +104,12 @@ function App() {
   <div className="relative w-full overflow-hidden whitespace-nowrap">
     <div className="inline-block animate-[marquee_20s_linear_infinite]">
       
-      {/* Teks Promo */}
+     
       <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
         ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
       </span>
       
-      {/* Duplikasi agar infinite */}
+     
       <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
         ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
       </span>
@@ -172,12 +170,7 @@ function App() {
         </div>
       </div>
 
-     {/* =========================================
-
-          HERO SECTION
-
-      ========================================= */}
-
+    
       <header id="home" className="relative py-24 md:py-32 px-4 overflow-hidden -mt-20" style={{ backgroundColor: '#7cb5c8', backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(124, 181, 200, 1) 0%, rgba(74, 140, 161, 1) 90%)' }}>
 
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
@@ -224,9 +217,7 @@ function App() {
 
       </header>
 
-      {/* =========================================
-          KEUNGGULAN SECTION
-      ========================================= */}
+     
       <section id="keunggulan" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="text-center mb-16">
           <span className="text-[#d63384] font-semibold uppercase tracking-wider text-sm">Mengapa Kami</span>
@@ -268,24 +259,22 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
-          PAKET HARGA (UI MODERN CLEAN 2026 - MOBILE ANIMATED)
-      ========================================= */}
+   
       <section id="paket" className="bg-white py-24 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
+        
           <div className="timbul-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out text-center mb-20">
             <span className="text-[#d63384] font-semibold uppercase tracking-widest text-sm">Pilihan Program</span>
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3">Pilih Kelas Sesuai Targetmu</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#d63384] to-[#7cb5c8] mx-auto mt-6 rounded-full"></div>
           </div>
 
-          {/* Grid Packages */}
+         
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
             {packages.map((pkg, index) => (
               <div 
                 key={pkg.id || index} 
-                // Menambahkan delay dinamis agar di HP munculnya berurutan 1 per 1 (staggered)
+                
                 style={{ transitionDelay: `${index * 150}ms` }}
                 className={`group relative rounded-3xl p-1 transition-all duration-500 z-10 cursor-default
                   timbul-scroll opacity-0 translate-y-12 /* Animasi Scroll */
@@ -294,7 +283,7 @@ function App() {
                   ${pkg.badge ? 'bg-gradient-to-b from-[#d63384] to-[#ff8da1]' : 'bg-slate-200 md:hover:bg-slate-300'}
                 `}
               >
-                {/* Badge Pop-up dengan efek Bounce */}
+                
                 {pkg.badge && (
                   <div className="absolute -top-5 inset-x-0 flex justify-center animate-bounce">
                     <span className="bg-slate-900 text-white text-xs font-bold uppercase tracking-widest py-2 px-6 rounded-full shadow-lg">
@@ -303,22 +292,22 @@ function App() {
                   </div>
                 )}
 
-                {/* Inner Card (Putih) */}
+              
                 <div className="bg-white rounded-[1.4rem] h-full p-8 flex flex-col relative overflow-hidden">
                   
-                  {/* Dekorasi Sudut Animasi */}
+                 
                   <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 md:group-hover:scale-[2] opacity-[0.08] 
                     ${pkg.badge ? 'bg-[#d63384]' : 'bg-[#7cb5c8]'}
                   `}></div>
 
-                  {/* Header Info */}
+                 
                   <div className="relative z-10 mb-8">
                     <h3 className="text-2xl font-black text-slate-900 mb-1">{pkg.title}</h3>
                     <p className="text-[#7cb5c8] font-semibold text-sm mb-4">{pkg.sub}</p>
                     <p className="text-slate-500 text-sm leading-relaxed min-h-[3rem]">{pkg.desc}</p>
                   </div>
 
-                  {/* Info Box (Target & Schedule) */}
+                 
                   <div className="relative z-10 bg-slate-50 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100 md:group-hover:bg-slate-100/60 transition-colors">
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400 text-xs font-semibold uppercase">Target</span>
@@ -346,7 +335,7 @@ function App() {
 
                           <div className="w-full h-px bg-slate-200/60"></div>
 
-                          {/* Sesi Weekend */}
+                          
                           <div>
                             <div className="flex justify-between items-center text-sm mb-1.5">
                               <span className="font-medium text-slate-700">Sabtu - Minggu</span>
@@ -367,7 +356,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Features List */}
+                 
                   <ul className="relative z-10 space-y-4 mb-10 flex-grow">
                     {pkg.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -379,7 +368,7 @@ function App() {
                     ))}
                   </ul>
 
-                  {/* CTA Button dengan Efek Tap untuk Mobile */}
+                 
                   <a 
                     href={`https://wa.me/6281238096091?text=${encodeURIComponent(`Halo Coach Tirta Jati Swimming Club, saya tertarik dengan les renang ${pkg.title}. Boleh minta info lebih lanjut?`)}`} 
                     target="_blank" 
@@ -406,13 +395,11 @@ function App() {
         </div>
       </section>
 
-     {/* =========================================
-          COACH SECTION
-      ========================================= */}
+   
       <section className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-5xl mx-auto px-4 py-24 border-b border-slate-100">
         <div 
           onClick={() => {
-            // Memicu efek "timbul" (scale)
+            
             setClickedFeature("coach-card");
             setTimeout(() => setClickedFeature(null), 300);
           }}
@@ -423,11 +410,11 @@ function App() {
             }
           `}
         >
-          {/* Bagian Foto (Klik untuk Zoom) */}
+         
           <div 
             className="w-full md:w-2/5 relative min-h-[300px] bg-slate-800 group"
             onClick={(e) => {
-              e.stopPropagation(); // Mencegah klik foto memicu klik card
+              e.stopPropagation(); 
               setSelectedImg("/img/coachimg1.jpg");
             }}
           >
@@ -440,7 +427,7 @@ function App() {
             </div>
           </div>
 
-          {/* Bagian Teks */}
+        
           <div className="p-10 md:p-14 w-full md:w-3/5 flex flex-col justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
             <span className="text-[#7cb5c8] font-semibold uppercase tracking-widest text-xs mb-3 block">Mengenal Coach</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">Coach yang Supportif & Profesional</h3>
@@ -451,9 +438,7 @@ function App() {
           </div>
         </div>
       </section>
-      {/* =========================================
-          LOKASI SECTION (DENGAN GOOGLE MAPS)
-      ========================================= */}
+     
       <section id="lokasi" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="bg-white rounded-[3rem] border border-slate-200 p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col md:flex-row gap-8 items-center">
           
@@ -499,9 +484,7 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
-          GALERI SECTION
-      ========================================= */}
+    
       <section id="galeri" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24 bg-slate-50/50 border-t border-slate-100">
         <div className="text-center mb-16">
           <span className="text-[#d63384] font-semibold uppercase tracking-wider text-sm">Dokumentasi</span>
@@ -524,9 +507,7 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
-          FAQ SECTION
-      ========================================= */}
+     
       <section id="faq" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-3xl mx-auto py-24 px-4 border-t border-slate-100">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-900">Pertanyaan Umum (FAQ)</h2>
@@ -549,9 +530,7 @@ function App() {
         </div>
       </section>
 
-      {/* =========================================
-          FOOTER
-      ========================================= */}
+     
       <footer className="bg-slate-50 border-t border-slate-100 text-slate-500 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-200 pb-16 mb-12">
           <div>
@@ -586,15 +565,13 @@ function App() {
         </div>
       </footer>
       
-      {/* =========================================
-          MODAL GALERI (LIGHTBOX ZOOM)
-      ========================================= */}
+     
       {selectedImg && (
         <div 
           className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer opacity-100 transition-opacity duration-300"
           onClick={() => setSelectedImg(null)}
         >
-          {/* Tombol Close (X) */}
+         
           <button 
             className="absolute top-6 right-6 p-2 bg-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all focus:outline-none"
             onClick={() => setSelectedImg(null)}
@@ -604,7 +581,7 @@ function App() {
             </svg>
           </button>
           
-          {/* Gambar yang di-zoom */}
+          
           <img 
             src={selectedImg} 
             alt="Dokumentasi Zoom" 
