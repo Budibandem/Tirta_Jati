@@ -94,18 +94,38 @@ function App() {
      {/* =========================================
           HEADER WRAPPER
       ========================================= */}
-      <div className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-        <div className={`bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white text-center px-4 font-medium tracking-wide origin-top transition-all duration-500 overflow-hidden flex items-center justify-center ${isScrolled ? 'h-0 opacity-0' : 'h-10 text-xs opacity-100'}`}>
-          <span>Khusus Pemula: Dapatkan 1x Sesi FREE TRIAL untuk Kelas Pertama!</span>
-          <a 
-            href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya pemula dan ingin menanyakan tentang sesi Free Trial. Mohon infonya ya, terima kasih!")}`}
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="underline text-white/90 hover:text-white ml-2 transition-colors font-semibold"
-          >
-            Ambil Slot →
-          </a>
-        </div>
+     <div className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  
+ {/* Banner Promo - Full Clickable (Tanpa tombol, seluruh area bisa diklik) */}
+<a 
+  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya tertarik dengan penawaran Free Trial untuk pemula. Mohon info pendaftarannya, terima kasih!")}`}
+  target="_blank" 
+  rel="noopener noreferrer"
+  className={`block w-full bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white overflow-hidden transition-all duration-500 flex items-center justify-center cursor-pointer hover:opacity-95 ${isScrolled ? 'h-0 opacity-0' : 'h-10'}`}
+>
+  <div className="relative w-full overflow-hidden whitespace-nowrap">
+    <div className="inline-block animate-[marquee_20s_linear_infinite]">
+      
+      {/* Teks Promo */}
+      <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
+        ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
+      </span>
+      
+      {/* Duplikasi agar infinite */}
+      <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
+        ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
+      </span>
+      
+    </div>
+  </div>
+
+  <style>{`
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  `}</style>
+</a>
 
         <div className={`relative flex justify-center transition-all duration-500 ease-in-out ${isScrolled ? 'pt-4 px-4' : 'pt-0 px-0'}`}>
          <nav className={`relative w-full flex justify-between items-center transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full py-2 px-6 md:px-10' : 'bg-white/95 backdrop-blur-md border-b border-slate-200/50 py-3 px-6 md:px-12'}`}>
@@ -124,13 +144,13 @@ function App() {
   <a href="#faq" className="hover:text-[#d63384] transition-colors">FAQ</a>
   
   <a 
-    href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className={`text-white px-5 py-2.5 rounded-full transition-all duration-300 text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled ? 'bg-[#d63384] hover:bg-[#b02a6c]' : 'bg-slate-900 hover:bg-slate-800'}`}
-  >
-    Hubungi Coach
-  </a>
+  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className={`text-white px-5 py-2.5 rounded-full transition-all duration-300 text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled ? 'bg-[#d63384] hover:bg-[#b02a6c]' : 'bg-slate-900 hover:bg-slate-800'}`}
+>
+  Hubungi Coach
+</a>
 </div>
 
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden focus:outline-none p-2 text-slate-500 hover:text-[#d63384] transition-colors">
