@@ -320,7 +320,7 @@ function App() {
 
                   {/* CTA Button dengan Efek Tap untuk Mobile */}
                   <a 
-                    href={`https://wa.me/6281238096091?text=${encodeURIComponent(`Halo Coach Tirta Jati Swimming Club, saya tertarik dengan kelas ${pkg.title}. Boleh minta info lebih lanjut?`)}`} 
+                    href={`https://wa.me/6281238096091?text=${encodeURIComponent(`Halo Coach Tirta Jati Swimming Club, saya tertarik dengan renang ${pkg.title}. Boleh minta info lebih lanjut?`)}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className={`relative z-10 mt-auto w-full text-center font-bold py-4 rounded-xl text-sm transition-all duration-300 overflow-hidden group/btn
