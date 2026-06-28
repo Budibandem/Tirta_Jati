@@ -106,12 +106,12 @@ function App() {
       
      
       <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
-        ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
+        ✨ KHUSUS PEMULA: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
       </span>
       
      
       <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
-        ✨ PROMO TERBATAS: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
+        ✨ KHUSUS PEMULA: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
       </span>
       
     </div>
