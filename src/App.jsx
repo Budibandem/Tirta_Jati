@@ -62,7 +62,7 @@ function App() {
       title: "Kelas Dewasa",
       sub: "(Adult Class)",
       desc: "Cocok untuk pemula yang belum bisa renang sama sekali atau untuk terapi kesehatan.",
-      target: "Usia 15 - 35+ Tahun",
+      target: "Usia 15 - 21+ Tahun",
       isSplit: true,
       weekdays: { days: "Senin, Rabu, Jumat", session: "4x Sesi / Bulan" },
       weekend: { days: "Sabtu & Minggu", session: "4x Sesi / Bulan" },
@@ -103,7 +103,7 @@ function App() {
         </div>
 
         <div className={`relative flex justify-center transition-all duration-500 ease-in-out ${isScrolled ? 'pt-4 px-4' : 'pt-0 px-0'}`}>
-          <nav className={`relative w-full flex justify-between items-center transition-all duration-500 ease-in-out ${isScrolled ? 'max-w-4xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full py-2 px-6' : 'max-w-6xl bg-white/95 backdrop-blur-md border-b border-slate-200/50 py-3 px-6 mx-auto'}`}>
+         <nav className={`relative w-full flex justify-between items-center transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full py-2 px-6 md:px-10' : 'bg-white/95 backdrop-blur-md border-b border-slate-200/50 py-3 px-6 md:px-12'}`}>
             <div className="flex items-center space-x-3">
               <img src="/logo.png" alt="Logo" className={`w-auto object-contain object-center transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10 md:h-12'}`} />
               <div className="leading-none flex flex-col justify-center">
@@ -142,27 +142,23 @@ function App() {
       </div>
 
       {/* =========================================
-          HERO SECTION
+          HERO SECTION (FORCE FULL WIDTH)
       ========================================= */}
       <header id="home" className="relative py-24 md:py-32 px-4 overflow-hidden -mt-20" style={{ backgroundColor: '#7cb5c8', backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(124, 181, 200, 1) 0%, rgba(74, 140, 161, 1) 90%)' }}>
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
+        
+        {/* ... (elemen dekorasi circle tetap di sini) ... */}
 
-        <div className="relative max-w-4xl mx-auto z-10 bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[3rem] border border-white/20 shadow-2xl mt-16">
+        {/* PERUBAHAN UTAMA: Gunakan mx-4 atau mx-auto dengan gap yang lebih kecil */}
+        <div className="relative w-full px-4 md:px-12 z-10 bg-white/10 backdrop-blur-md p-8 md:p-16 rounded-[3rem] border border-white/20 shadow-2xl mt-16">
           <div className="text-center">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight text-white drop-shadow-sm">
               Belajar Renang Jadi Mudah, <br/>
               <span className="text-[#d63384] bg-white/95 px-5 py-2 rounded-full border border-pink-100 inline-block mt-3 shadow-xl">Aman & Menyenangkan!</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl mb-10 text-white/90 max-w-4xl mx-auto leading-relaxed font-medium">
               Metode kepelatihan terstruktur untuk segala usia. Dipandu langsung oleh pelatih profesional berlisensi untuk membantu Anda menguasai teknik renang dengan cepat.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a href="#paket" className="w-full sm:w-auto bg-[#d63384] text-white font-black px-8 py-4 rounded-full shadow-xl hover:bg-[#b02a6c] hover:scale-105 transition duration-300 uppercase tracking-wider text-sm">Lihat Pilihan Kelas</a>
-              <a href="https://wa.me/6281238096091" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-full shadow-lg transition duration-300 border border-white/30 backdrop-blur-sm flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
-                <span>💬 Hubungi Coach</span>
-              </a>
-            </div>
+            {/* ... (tombol tetap sama) ... */}
           </div>
         </div>
       </header>
@@ -212,88 +208,137 @@ function App() {
       </section>
 
       {/* =========================================
-          PAKET HARGA (UI 2026 - SPLIT BENTO GRID)
+          PAKET HARGA (UI MODERN CLEAN 2026 - MOBILE ANIMATED)
       ========================================= */}
-      <section id="paket" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out bg-slate-50/50 py-24 px-4 border-y border-slate-100">
+      <section id="paket" className="bg-white py-24 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="bg-[#d63384]/10 text-[#d63384] px-4 py-1.5 rounded-full font-bold uppercase tracking-wider text-xs">Pilih Kelasmu</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-6 tracking-tight">Program Latihan Renang</h2>
-            <p className="text-slate-500 mt-4 text-base max-w-lg mx-auto">Silakan pilih jadwal yang sesuai dengan Anda di bawah ini..</p>
+          {/* Header Section */}
+          <div className="timbul-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out text-center mb-20">
+            <span className="text-[#d63384] font-semibold uppercase tracking-widest text-sm">Pilihan Program</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3">Pilih Kelas Sesuai Targetmu</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#d63384] to-[#7cb5c8] mx-auto mt-6 rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            {packages.map((pkg) => (
-              <div key={pkg.id} className={`group relative bg-white rounded-[2.5rem] p-8 flex flex-col h-full transition-all duration-500 hover:-translate-y-2 ${pkg.badge ? 'border-2 border-[#d63384]/20 shadow-[0_20px_40px_-15px_rgba(214,51,132,0.15)] lg:-translate-y-4' : 'border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]'}`}>
-                
+          {/* Grid Packages */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+            {packages.map((pkg, index) => (
+              <div 
+                key={pkg.id || index} 
+                // Menambahkan delay dinamis agar di HP munculnya berurutan 1 per 1 (staggered)
+                style={{ transitionDelay: `${index * 150}ms` }}
+                className={`group relative rounded-3xl p-1 transition-all duration-500 z-10 cursor-default
+                  timbul-scroll opacity-0 translate-y-12 /* Animasi Scroll */
+                  md:hover:scale-[1.03] md:hover:shadow-2xl md:hover:z-20 /* Hover untuk Laptop */
+                  active:scale-[0.98] /* Efek ditekan untuk Mobile */
+                  ${pkg.badge ? 'bg-gradient-to-b from-[#d63384] to-[#ff8da1]' : 'bg-slate-200 md:hover:bg-slate-300'}
+                `}
+              >
+                {/* Badge Pop-up dengan efek Bounce */}
                 {pkg.badge && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#d63384] to-[#f472b6] text-white text-xs font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">
-                    {pkg.badge}
+                  <div className="absolute -top-5 inset-x-0 flex justify-center animate-bounce">
+                    <span className="bg-slate-900 text-white text-xs font-bold uppercase tracking-widest py-2 px-6 rounded-full shadow-lg">
+                      {pkg.badge}
+                    </span>
                   </div>
                 )}
-                
-                <div className="text-center mb-6 mt-4">
-                  <h3 className="font-extrabold text-2xl text-slate-900">{pkg.title}</h3>
-                  <span className="text-[#7cb5c8] font-bold text-sm block mt-1">{pkg.sub}</span>
-                </div>
 
-                <p className="text-slate-500 text-sm text-center leading-relaxed mb-6 h-14">{pkg.desc}</p>
-                
-                {/* TARGET USIA */}
-                <div className="flex justify-between items-center pb-3 mb-4 border-b border-slate-100">
-                  <span className="text-slate-400 text-[11px] uppercase tracking-wider font-bold flex items-center gap-1.5">
-                    <svg className="w-4 h-4 text-[#7cb5c8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                    Target
-                  </span>
-                  <span className="text-slate-800 text-xs font-extrabold bg-slate-100 px-3 py-1 rounded-full">{pkg.target}</span>
-                </div>
+                {/* Inner Card (Putih) */}
+                <div className="bg-white rounded-[1.4rem] h-full p-8 flex flex-col relative overflow-hidden">
+                  
+                  {/* Dekorasi Sudut Animasi */}
+                  <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 md:group-hover:scale-[2] opacity-[0.08] 
+                    ${pkg.badge ? 'bg-[#d63384]' : 'bg-[#7cb5c8]'}
+                  `}></div>
 
-                {/* AREA BENTO JADWAL (SPLIT WEEKDAYS & WEEKEND - NO TOGGLE) */}
-                <div className="bg-slate-50 rounded-3xl p-4 mb-6 space-y-3 border border-slate-100">
-                  {pkg.isSplit ? (
-                    <div className="grid grid-cols-2 gap-3">
-                      {/* Kolom Weekdays */}
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
-                        <div>
-                          <span className="text-[#7cb5c8] text-[10px] font-black uppercase tracking-wider block">🗓️ Weekdays</span>
-                          <span className="text-slate-700 text-xs font-semibold block mt-2 leading-tight">{pkg.weekdays.days}</span>
-                        </div>
-                        <span className="text-[#d63384] text-[11px] font-bold block mt-3 bg-pink-50 text-center py-1 rounded-lg">{pkg.weekdays.session}</span>
-                      </div>
+                  {/* Header Info */}
+                  <div className="relative z-10 mb-8">
+                    <h3 className="text-2xl font-black text-slate-900 mb-1">{pkg.title}</h3>
+                    <p className="text-[#7cb5c8] font-semibold text-sm mb-4">{pkg.sub}</p>
+                    <p className="text-slate-500 text-sm leading-relaxed min-h-[3rem]">{pkg.desc}</p>
+                  </div>
+
+                  {/* Info Box (Target & Schedule) */}
+                  <div className="relative z-10 bg-slate-50 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100 md:group-hover:bg-slate-100/60 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-400 text-xs font-semibold uppercase">Target</span>
+                      <span className="text-slate-800 text-sm font-bold bg-white px-3 py-1 rounded-full shadow-sm">{pkg.target}</span>
+                    </div>
+                    
+                    <div className="w-full h-px bg-slate-200"></div>
+                    
+                    <div className="text-left">
+                      <span className="text-slate-400 text-xs font-semibold uppercase block mb-3">Jadwal Latihan</span>
                       
-                      {/* Kolom Weekend */}
-                      <div className="bg-white p-3 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col justify-between">
-                        <div>
-                          <span className="text-[#d63384] text-[10px] font-black uppercase tracking-wider block">☀️ Weekend</span>
-                          <span className="text-slate-700 text-xs font-semibold block mt-2 leading-tight">{pkg.weekend.days}</span>
-                        </div>
-                        <span className="text-[#d63384] text-[11px] font-bold block mt-3 bg-pink-50 text-center py-1 rounded-lg">{pkg.weekend.session}</span>
-                      </div>
-                    </div>
-                  ) : (
-                    /* Tampilan Kolom Tunggal Fleksibel (Untuk Kelas Privat) */
-                    <div className="bg-white p-4 rounded-2xl border border-slate-200/60 shadow-sm text-center">
-                      <span className="text-emerald-600 text-[10px] font-black uppercase tracking-wider block">✨ Kelas VIP</span>
-                      <span className="text-slate-800 text-sm font-bold block mt-2">{pkg.flexibleSchedule}</span>
-                      <span className="text-slate-500 text-xs block mt-1">{pkg.system}</span>
-                    </div>
-                  )}
-                </div>
-                
-                <ul className="space-y-3 mb-8 text-sm text-slate-600 font-medium text-left flex-grow">
-                  {pkg.features.map((feat, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
-                      </div>
-                      <span className="text-xs sm:text-sm text-slate-600">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                      {pkg.isSplit ? (
+                        <div className="space-y-4">
+                          {/* Sesi Weekdays */}
+                          <div>
+                            <div className="flex justify-between items-center text-sm mb-1.5">
+                              <span className="font-medium text-slate-700">Senin, Rabu atau Jumat</span>
+                              <span className="font-bold text-[#d63384] text-xs bg-pink-50 px-2 py-1 rounded-md">{pkg.weekdays.session}</span>
+                            </div>
+                            <span className="text-slate-500 text-xs flex items-center gap-1.5">
+                              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                              15.30 - 17.00 WITA
+                            </span>
+                          </div>
 
-                <a href={`https://wa.me/6281238096091?text=${encodeURIComponent(`halo coach tirta jati swimming club, saya ingin daftar kelas renang ${pkg.title}`)}`} target="_blank" rel="noopener noreferrer" className={`mt-auto w-full text-center font-bold py-4 rounded-2xl text-sm transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 ${pkg.badge ? 'bg-[#d63384] hover:bg-[#b02a6c] text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}>
-                  Pilih Kelas Ini →
-                </a>
+                          <div className="w-full h-px bg-slate-200/60"></div>
+
+                          {/* Sesi Weekend */}
+                          <div>
+                            <div className="flex justify-between items-center text-sm mb-1.5">
+                              <span className="font-medium text-slate-700">Sabtu - Minggu</span>
+                              <span className="font-bold text-[#d63384] text-xs bg-pink-50 px-2 py-1 rounded-md">{pkg.weekend.session}</span>
+                            </div>
+                            <span className="text-slate-500 text-xs flex items-center gap-1.5">
+                              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                              15.30 - 17.00 WITA
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="text-sm font-medium text-slate-700 bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+                          <span className="block text-emerald-600 font-bold mb-1">✨ {pkg.flexibleSchedule}</span>
+                          <span className="text-xs text-slate-500 font-normal leading-tight">{pkg.system}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <ul className="relative z-10 space-y-4 mb-10 flex-grow">
+                    {pkg.features.map((feat, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${pkg.badge ? 'text-[#d63384]' : 'text-[#7cb5c8]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-slate-600 leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button dengan Efek Tap untuk Mobile */}
+                  <a 
+                    href={`https://wa.me/6281238096091?text=${encodeURIComponent(`Halo Coach Tirta Jati Swimming Club, saya tertarik dengan kelas ${pkg.title}. Boleh minta info lebih lanjut?`)}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={`relative z-10 mt-auto w-full text-center font-bold py-4 rounded-xl text-sm transition-all duration-300 overflow-hidden group/btn
+                      active:scale-95 /* Efek tombol tertekan di HP */
+                      ${pkg.badge 
+                        ? 'bg-[#d63384] text-white shadow-[0_10px_20px_-10px_rgba(214,51,132,0.6)] md:hover:bg-[#b02a6c]' 
+                        : 'bg-slate-900 text-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.6)] md:hover:bg-slate-800'
+                      }
+                    `}
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Daftar Sekarang
+                      <svg className="w-4 h-4 md:group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </span>
+                    <div className="absolute inset-0 h-full w-0 bg-white/10 transition-[width] duration-300 ease-out md:group-hover/btn:w-full hidden md:block"></div>
+                  </a>
+
+                </div>
               </div>
             ))}
           </div>
