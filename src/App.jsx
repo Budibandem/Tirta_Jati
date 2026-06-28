@@ -234,7 +234,7 @@ function App() {
               key={index} 
               onClick={() => {
                 setClickedFeature(index);
-                // Kembalikan ke normal setelah 300ms
+                
                 setTimeout(() => setClickedFeature(null), 300);
               }}
               className={`bg-white p-8 rounded-2xl flex flex-col group cursor-pointer transition-all duration-300 ease-out transform
@@ -247,7 +247,7 @@ function App() {
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300
                 ${clickedFeature === index ? 'bg-[#7cb5c8] text-white' : 'bg-slate-50 group-hover:bg-[#7cb5c8]/10'}
               `}>
-                {/* Mengubah warna icon saat diklik */}
+               
                 {React.cloneElement(item.icon, { 
                   className: `w-7 h-7 transition-colors duration-300 ${clickedFeature === index ? 'text-white' : 'text-[#7cb5c8]'}` 
                 })}
