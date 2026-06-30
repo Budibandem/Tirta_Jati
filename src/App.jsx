@@ -9,13 +9,13 @@ function App() {
   const [clickedFeature, setClickedFeature] = useState(null);
 
   useEffect(() => {
-    
+   
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
-  
+    
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -29,13 +29,13 @@ function App() {
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-   
+    
     const timer = setTimeout(() => {
       const elements = document.querySelectorAll('.timbul-scroll');
       elements.forEach((el) => observer.observe(el));
     }, 100);
 
-   
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
@@ -43,7 +43,7 @@ function App() {
     };
   }, []);
 
- 
+  
   const packages = [
     {
       id: 1,
@@ -55,7 +55,7 @@ function App() {
       isSplit: true, // Flag untuk membagi tampilan weekdays/weekend
       weekdays: { days: "Senin, Rabu, Jumat", session: "4x Sesi / Bulan" },
       weekend: { days: "Sabtu & Minggu", session: "4x Sesi / Bulan" },
-      features: ["Metode Belajar Sambil Bermain", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
+      features: ["Teknik Dasar Renang yang Benar & Aman", "Belajar dari nol (takut air)", "Durasi latihan 60 Menit"],
     },
     {
       id: 2,
@@ -89,135 +89,103 @@ function App() {
   ];
 
   return (
-    <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900 pt-20">
+  
+  
+    <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900">
       
     
-     <div className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+<header className="fixed top-0 left-0 w-full bg-white border-b border-slate-200 z-50">
+  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
   
+    <a href="#home" className="flex items-center space-x-3">
+      <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+      <div className="leading-none">
+        <span className="font-bold text-[#7cb5c8] text-lg block">TIRTA JATI SC</span>
+        <span className="text-[10px] uppercase font-bold tracking-widest text-[#d63384]">Di air kita jaya</span>
+      </div>
+    </a>
 
-<a 
-  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya tertarik dengan penawaran Free Trial untuk pemula. Mohon info pendaftarannya, terima kasih!")}`}
-  target="_blank" 
-  rel="noopener noreferrer"
-  className={`block w-full bg-gradient-to-r from-[#7cb5c8] to-[#d63384] text-white overflow-hidden transition-all duration-500 flex items-center justify-center cursor-pointer hover:opacity-95 ${isScrolled ? 'h-0 opacity-0' : 'h-10'}`}
->
-  <div className="relative w-full overflow-hidden whitespace-nowrap">
-    <div className="inline-block animate-[marquee_20s_linear_infinite]">
-      
-     
-      <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
-        ✨ KHUSUS PEMULA: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
-      </span>
-      
-     
-      <span className="mx-8 font-bold text-[11px] md:text-xs tracking-wide">
-        ✨ KHUSUS PEMULA: Klaim 1x Sesi <span className="underline decoration-white/50 underline-offset-4">FREE TRIAL</span> untuk Kelas Pertama Anda! — Klik di sini untuk info lebih lanjut.
-      </span>
-      
-    </div>
-  </div>
-
-  <style>{`
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-  `}</style>
-</a>
-
-        <div className={`relative flex justify-center transition-all duration-500 ease-in-out ${isScrolled ? 'pt-4 px-4' : 'pt-0 px-0'}`}>
-         <nav className={`relative w-full flex justify-between items-center transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full py-2 px-6 md:px-10' : 'bg-white/95 backdrop-blur-md border-b border-slate-200/50 py-3 px-6 md:px-12'}`}>
-            <div className="flex items-center space-x-3">
-              <img src="/logo.png" alt="Logo" className={`w-auto object-contain object-center transition-all duration-500 ${isScrolled ? 'h-8' : 'h-10 md:h-12'}`} />
-              <div className="leading-none flex flex-col justify-center">
-                <span className={`font-bold tracking-tight text-[#7cb5c8] transition-all duration-500 ${isScrolled ? 'text-base' : 'text-lg'}`}>TIRTA JATI SC</span>
-                {!isScrolled && <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-[#d63384] mt-0.5 opacity-100 transition-opacity duration-300">Di air kita jaya</span>}
-              </div>
-            </div>
-
-           <div className="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
-  <a href="#home" className="hover:text-[#d63384] transition-colors">Beranda</a>
-  <a href="#paket" className="hover:text-[#d63384] transition-colors">Program</a>
-  <a href="#lokasi" className="hover:text-[#d63384] transition-colors">Lokasi</a>
-  <a href="#faq" className="hover:text-[#d63384] transition-colors">FAQ</a>
-  
-  <a 
-  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className={`text-white px-5 py-2.5 rounded-full transition-all duration-300 text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 ${isScrolled ? 'bg-[#d63384] hover:bg-[#b02a6c]' : 'bg-slate-900 hover:bg-slate-800'}`}
+   
+    <nav id="navbar-menu" className="hidden md:flex items-center space-x-8 font-semibold text-sm text-slate-700">
+      <a href="#home" className="hover:text-[#d63384] transition-colors">Beranda</a>
+      <a href="#paket" className="hover:text-[#d63384] transition-colors">Program</a>
+      <a href="#lokasi" className="hover:text-[#d63384] transition-colors">Lokasi</a>
+      <a href="#faq" className="hover:text-[#d63384] transition-colors">FAQ</a>
+      <a 
+  href="https://wa.me/6281238096091?text=Halo%20Coach%20Tirta%20Jati%20Swimming%20Club,%20saya%20ingin%20berkonsultasi%20mengenai%20kelas%20renang.%20Mohon%20infonya%20ya,%20terima%20kasih!" 
+  className="bg-[#d63384] text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-[#b02a6c] transition-all"
 >
   Hubungi Coach
 </a>
-</div>
+    </nav>
 
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden focus:outline-none p-2 text-slate-500 hover:text-[#d63384] transition-colors">
-              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                {isMenuOpen ? <path fillRule="evenodd" clipRule="evenodd" d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z" /> : <path fillRule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z" />}
-              </svg>
-            </button>
-            
-            {isMenuOpen && (
-              <div className="absolute top-[calc(100%+10px)] left-0 right-0 md:hidden bg-white/95 backdrop-blur-xl p-4 rounded-3xl border border-slate-100 flex flex-col font-medium shadow-2xl origin-top transition-all">
-                <a href="#home" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors">Beranda</a>
-                <a href="#paket" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors">Program</a>
-                <a href="#lokasi" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors">Lokasi</a>
-                <a href="#faq" onClick={() => setIsMenuOpen(false)} className="py-3 px-4 text-slate-600 hover:text-[#d63384] hover:bg-slate-50 rounded-2xl transition-colors mb-4">FAQ</a>
-                <a href="https://wa.me/6281238096091" onClick={() => setIsMenuOpen(false)} className="bg-slate-900 text-white text-center py-4 rounded-2xl font-bold shadow-md">Hubungi Coach →</a>
-              </div>
-            )}
-          </nav>
-        </div>
-      </div>
+    <button 
+      className="md:hidden p-2 text-slate-700"
+      onClick={() => {
+        const menu = document.getElementById('navbar-menu');
+        // Ubah dari hidden menjadi flex vertikal saat di HP
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        menu.classList.toggle('flex-col');
+        menu.classList.toggle('absolute');
+        menu.classList.toggle('top-full');
+        menu.classList.toggle('left-0');
+        menu.classList.toggle('w-full');
+        menu.classList.toggle('bg-white');
+        menu.classList.toggle('p-6');
+        menu.classList.toggle('space-x-0');
+        menu.classList.toggle('space-y-6');
+      }}
+    >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"/>
+      </svg>
+    </button>
+  </div>
+</header>
 
-    
-      <header id="home" className="relative py-24 md:py-32 px-4 overflow-hidden -mt-20" style={{ backgroundColor: '#7cb5c8', backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(124, 181, 200, 1) 0%, rgba(74, 140, 161, 1) 90%)' }}>
-
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
-
-
-
-        <div className="relative max-w-4xl mx-auto z-10 bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[3rem] border border-white/20 shadow-2xl mt-16">
-
-          <div className="text-center">
-
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight text-white drop-shadow-sm">
-
-              Belajar Renang Jadi Mudah, <br/>
-
-              <span className="text-[#d63384] bg-white/95 px-5 py-2 rounded-full border border-pink-100 inline-block mt-3 shadow-xl">Aman & Menyenangkan!</span>
-
-            </h1>
-
-            <p className="text-base sm:text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed font-medium">
-
-              Metode kepelatihan terstruktur untuk segala usia. Dipandu langsung oleh pelatih profesional berlisensi untuk membantu Anda menguasai teknik renang dengan cepat.
-
-            </p>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-
-              <a href="#paket" className="w-full sm:w-auto bg-[#d63384] text-white font-black px-8 py-4 rounded-full shadow-xl hover:bg-[#b02a6c] hover:scale-105 transition duration-300 uppercase tracking-wider text-sm">Lihat Pilihan Kelas</a>
-
-              <a 
-  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya tertarik untuk menanyakan detail program kelas renang. Boleh minta informasinya? Terima kasih!")}`}
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-bold px-8 py-4 rounded-full shadow-lg transition duration-300 border border-white/30 backdrop-blur-sm flex items-center justify-center gap-2 text-sm uppercase tracking-wider"
+<section 
+  id="home" 
+  /* min-h-screen: Memastikan section selalu minimal setinggi layar
+     flex: Tetap gunakan flex untuk centering
+     pt-24 md:pt-32: Padding atas yang lebih aman untuk desktop
+     pb-16: Memberikan ruang napas di bawah agar tombol tidak mepet/hilang
+  */
+  className="relative w-full min-h-screen pt-24 md:pt-32 pb-16 flex flex-col items-center justify-center overflow-hidden"
 >
-  <span>💬 Hubungi Coach</span>
-</a>
-            </div>
+  
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="/img/beranda.jpg" 
+      alt="Jasa Belajar Renang" 
+      className="w-full h-full object-cover object-center scale-[1.02]" 
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/40 to-transparent"></div>
+  </div>
 
-          </div>
+<div className="relative z-10 w-full max-w-4xl px-6 text-center text-white flex flex-col items-center">
 
-        </div>
 
-      </header>
+  <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold leading-[0.95] mb-8 tracking-tighter">
+    Selamat Datang di <br/>
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7cb5c8] to-[#99d1e3] italic">
+      Tirta Jati Swimming Club.
+    </span>
+  </h1>
+  {/* Deskripsi */}
+  <p className="text-slate-300 text-lg md:text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
+   Kami menghadirkan standar pelatihan renang yang terstruktur dan personal. Dengan pendekatan yang mengutamakan keamanan dan kenyamanan, kami membimbing setiap siswa untuk menguasai teknik yang benar sekaligus membangun kepercayaan diri di air.
+  </p>
 
-     
+ 
+  <a href="#paket" className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300">
+    <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">Scroll untuk Program</span>
+    <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent animate-bounce"></div>
+  </a>
+</div>
+</section>
+      
       <section id="keunggulan" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="text-center mb-16">
           <span className="text-[#d63384] font-semibold uppercase tracking-wider text-sm">Mengapa Kami</span>
@@ -234,7 +202,7 @@ function App() {
               key={index} 
               onClick={() => {
                 setClickedFeature(index);
-                
+                // Kembalikan ke normal setelah 300ms
                 setTimeout(() => setClickedFeature(null), 300);
               }}
               className={`bg-white p-8 rounded-2xl flex flex-col group cursor-pointer transition-all duration-300 ease-out transform
@@ -247,7 +215,7 @@ function App() {
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300
                 ${clickedFeature === index ? 'bg-[#7cb5c8] text-white' : 'bg-slate-50 group-hover:bg-[#7cb5c8]/10'}
               `}>
-               
+             
                 {React.cloneElement(item.icon, { 
                   className: `w-7 h-7 transition-colors duration-300 ${clickedFeature === index ? 'text-white' : 'text-[#7cb5c8]'}` 
                 })}
@@ -259,10 +227,10 @@ function App() {
         </div>
       </section>
 
-   
+     
       <section id="paket" className="bg-white py-24 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-        
+          {/* Header Section */}
           <div className="timbul-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out text-center mb-20">
             <span className="text-[#d63384] font-semibold uppercase tracking-widest text-sm">Pilihan Program</span>
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3">Pilih Kelas Sesuai Targetmu</h2>
@@ -274,7 +242,7 @@ function App() {
             {packages.map((pkg, index) => (
               <div 
                 key={pkg.id || index} 
-                
+              
                 style={{ transitionDelay: `${index * 150}ms` }}
                 className={`group relative rounded-3xl p-1 transition-all duration-500 z-10 cursor-default
                   timbul-scroll opacity-0 translate-y-12 /* Animasi Scroll */
@@ -307,7 +275,7 @@ function App() {
                     <p className="text-slate-500 text-sm leading-relaxed min-h-[3rem]">{pkg.desc}</p>
                   </div>
 
-                 
+                
                   <div className="relative z-10 bg-slate-50 rounded-2xl p-5 mb-8 space-y-4 border border-slate-100 md:group-hover:bg-slate-100/60 transition-colors">
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400 text-xs font-semibold uppercase">Target</span>
@@ -321,10 +289,10 @@ function App() {
                       
                       {pkg.isSplit ? (
                         <div className="space-y-4">
-                          {/* Sesi Weekdays */}
+                     
                           <div>
                             <div className="flex justify-between items-center text-sm mb-1.5">
-                              <span className="font-medium text-slate-700">Senin, Rabu atau Jumat</span>
+                              <span className="block text-slate-900 font-bold mb-1">Senin, Rabu atau Jumat</span>
                               <span className="font-bold text-[#d63384] text-xs bg-pink-50 px-2 py-1 rounded-md">{pkg.weekdays.session}</span>
                             </div>
                             <span className="text-slate-500 text-xs flex items-center gap-1.5">
@@ -335,10 +303,10 @@ function App() {
 
                           <div className="w-full h-px bg-slate-200/60"></div>
 
-                          
+                        
                           <div>
                             <div className="flex justify-between items-center text-sm mb-1.5">
-                              <span className="font-medium text-slate-700">Sabtu - Minggu</span>
+                              <span className="block text-slate-900 font-bold mb-1">Sabtu - Minggu</span>
                               <span className="font-bold text-[#d63384] text-xs bg-pink-50 px-2 py-1 rounded-md">{pkg.weekend.session}</span>
                             </div>
                             <span className="text-slate-500 text-xs flex items-center gap-1.5">
@@ -349,9 +317,13 @@ function App() {
                         </div>
                       ) : (
                         <div className="text-sm font-medium text-slate-700 bg-white p-3 rounded-xl shadow-sm border border-slate-100">
-                          <span className="block text-emerald-600 font-bold mb-1">✨ {pkg.flexibleSchedule}</span>
-                          <span className="text-xs text-slate-500 font-normal leading-tight">{pkg.system}</span>
-                        </div>
+  <span className="block text-slate-900 font-bold mb-1">
+    {pkg.flexibleSchedule}
+  </span>
+  <span className="text-xs text-slate-500 font-normal leading-tight">
+    {pkg.system}
+  </span>
+</div>
                       )}
                     </div>
                   </div>
@@ -395,7 +367,7 @@ function App() {
         </div>
       </section>
 
-   
+    
       <section className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-5xl mx-auto px-4 py-24 border-b border-slate-100">
         <div 
           onClick={() => {
@@ -414,12 +386,12 @@ function App() {
           <div 
             className="w-full md:w-2/5 relative min-h-[300px] bg-slate-800 group"
             onClick={(e) => {
-              e.stopPropagation(); 
+              e.stopPropagation();
               setSelectedImg("/img/coachimg1.jpg");
             }}
           >
             <img src="/img/coachimg1.jpg" alt="Coach Renang" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
-            {/* Ikon Zoom */}
+           
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
               <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
@@ -427,7 +399,7 @@ function App() {
             </div>
           </div>
 
-        
+       
           <div className="p-10 md:p-14 w-full md:w-3/5 flex flex-col justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
             <span className="text-[#7cb5c8] font-semibold uppercase tracking-widest text-xs mb-3 block">Mengenal Coach</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">Coach yang Supportif & Profesional</h3>
@@ -438,7 +410,7 @@ function App() {
           </div>
         </div>
       </section>
-     
+      
       <section id="lokasi" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="bg-white rounded-[3rem] border border-slate-200 p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col md:flex-row gap-8 items-center">
           
@@ -484,7 +456,7 @@ function App() {
         </div>
       </section>
 
-    
+     
       <section id="galeri" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24 bg-slate-50/50 border-t border-slate-100">
         <div className="text-center mb-16">
           <span className="text-[#d63384] font-semibold uppercase tracking-wider text-sm">Dokumentasi</span>
@@ -530,11 +502,11 @@ function App() {
         </div>
       </section>
 
-     
+      
       <footer className="bg-slate-50 border-t border-slate-100 text-slate-500 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-200 pb-16 mb-12">
           <div>
-            <h2 className="text-4xl font-serif text-slate-900 mb-6">Mulai perjalanan Anda.</h2>
+            <h2 className="text-4xl font-serif text-slate-900 mb-6">Ayo Bergabung</h2>
             <p className="font-light max-w-sm leading-relaxed mb-8">Ambil langkah pertama untuk belajar berenang dengan percaya diri bersama pelatih profesional kami.</p>
             <a 
   href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
@@ -561,7 +533,7 @@ function App() {
 
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm font-light text-slate-400 gap-6">
           <p>© {new Date().getFullYear()} Tirta Jati SC.</p>
-          <p className="text-xs">Created with <span className="text-[#d63384]">❤</span> by swim coach @buddz</p>
+          <p className="text-xs">Created with <span className="text-[#d63384]"></span> by swim coach @buddz</p>
         </div>
       </footer>
       
@@ -581,7 +553,7 @@ function App() {
             </svg>
           </button>
           
-          
+         
           <img 
             src={selectedImg} 
             alt="Dokumentasi Zoom" 
