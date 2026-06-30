@@ -154,7 +154,7 @@ function App() {
   */
   className="relative w-full min-h-screen pt-24 md:pt-32 pb-16 flex flex-col items-center justify-center overflow-hidden"
 >
-  
+  {/* Latar Belakang (Tetap) */}
   <div className="absolute inset-0 z-0">
     <img 
       src="/img/beranda.jpg" 
@@ -164,28 +164,28 @@ function App() {
     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/40 to-transparent"></div>
   </div>
 
-<div className="relative z-10 w-full max-w-4xl px-6 text-center text-white flex flex-col items-center">
+{/* Konten Utama */}
+<div className="relative z-10 w-full max-w-4xl px-4 sm:px-6 text-center text-white flex flex-col items-center">
 
-
-  <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold leading-[0.95] mb-8 tracking-tighter">
+  {/* h-auto untuk memastikan container mengikuti panjang teks */}
+  <h1 className="w-full text-4xl sm:text-7xl md:text-8xl font-extrabold leading-[0.9] mb-8 tracking-tighter break-words">
     Selamat Datang di <br/>
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7cb5c8] to-[#99d1e3] italic">
+    <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#7cb5c8] to-[#99d1e3] italic mt-2">
       Tirta Jati Swimming Club.
     </span>
   </h1>
-  {/* Deskripsi */}
-  <p className="text-slate-300 text-lg md:text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-   Kami menghadirkan standar pelatihan renang yang terstruktur dan personal. Dengan pendekatan yang mengutamakan keamanan dan kenyamanan, kami membimbing setiap siswa untuk menguasai teknik yang benar sekaligus membangun kepercayaan diri di air.
-  </p>
 
- 
+  {/* Paragraf juga butuh px agar tidak mepet */}
+  <p className="text-slate-200 text-base sm:text-lg md:text-xl mb-16 max-w-xl mx-auto font-light leading-relaxed px-2">
+    Kami menghadirkan standar pelatihan renang yang terstruktur dan personal. Dengan pendekatan yang mengutamakan keamanan dan kenyamanan, kami membimbing setiap siswa untuk menguasai teknik yang benar sekaligus membangun kepercayaan diri di air.
+  </p>
+  {/* Indikator Scroll (Pengganti Tombol) */}
   <a href="#paket" className="group flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300">
     <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">Scroll untuk Program</span>
     <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent animate-bounce"></div>
   </a>
 </div>
 </section>
-      
       <section id="keunggulan" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-6xl mx-auto px-4 py-24">
         <div className="text-center mb-16">
           <span className="text-[#d63384] font-semibold uppercase tracking-wider text-sm">Mengapa Kami</span>
