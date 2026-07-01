@@ -9,13 +9,13 @@ function App() {
   const [clickedFeature, setClickedFeature] = useState(null);
 
   useEffect(() => {
-   
+    // 1. Handle Navbar Scroll
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
-   
+    // 2. Handle Animasi Timbul
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -29,13 +29,13 @@ function App() {
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-  
+    // Beri jeda 100ms agar DOM ter-render penuh sebelum ditangkap querySelector
     const timer = setTimeout(() => {
       const elements = document.querySelectorAll('.timbul-scroll');
       elements.forEach((el) => observer.observe(el));
     }, 100);
 
-   
+    // Cleanup function
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
@@ -54,7 +54,7 @@ React.useEffect(() => {
 }, []);
 
 
-
+// State untuk mengontrol mode tampilan seluruh kartu (Ringkasan vs Kurikulum)
 const [viewMode, setViewMode] = React.useState('ringkasan'); 
 
 const programs = [
@@ -113,31 +113,31 @@ const programs = [
 
   return (
   
-   
+    // 1. Hapus "pt-20" di sini, biarkan konten dimulai dari atas
     <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900">
       
-   
+    {/* NAVBAR UTAMA (Update Warna & Sinkronisasi) */}
 <header className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm border-b border-slate-100 z-50">
   <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     
-  
+    {/* Logo & Brand (Disesuaikan agar lebih selaras) */}
 <a href="#home" className="flex items-center space-x-3">
   <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
   <div className="leading-none text-left">
     <span className="font-black text-[#0077b6] text-lg block tracking-tight">TIRTA JATI SC</span>
-    
+    {/* Mengubah warna dari Pink menjadi biru muda yang segar atau slate untuk kesan premium */}
     <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-[#00b4d8]">Di air kita jaya</span>
   </div>
 </a>
 
- 
+    {/* Menu (Desktop) */}
     <nav id="navbar-menu" className="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest text-slate-600">
       <a href="#home" className="hover:text-[#0077b6] transition-colors">Beranda</a>
       <a href="#paket" className="hover:text-[#0077b6] transition-colors">Program</a>
       <a href="#lokasi" className="hover:text-[#0077b6] transition-colors">Lokasi</a>
       <a href="#faq" className="hover:text-[#0077b6] transition-colors">FAQ</a>
       
-      
+      {/* Tombol Hubungi Coach (Diselaraskan dengan gaya tombol beranda) */}
       <a 
         href="https://wa.me/6281238096091?text=Halo%20Coach%20Tirta%20Jati,%20saya%20ingin%20berkonsultasi%20mengenai%20kelas%20renang." 
         className="bg-[#0077b6] text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#005f8f] transition-all shadow-lg shadow-[#0077b6]/20"
@@ -146,7 +146,7 @@ const programs = [
       </a>
     </nav>
 
-  
+    {/* Hamburger Button */}
     <button 
       className="md:hidden p-2 text-[#0077b6]"
       onClick={() => {
@@ -171,41 +171,43 @@ const programs = [
     </button>
   </div>
 </header>
-
+{/* =========================================
+    HERO SECTION (2026 ULTRA-SPORTY LIGHT PREMIUM THEME)
+========================================= */}
 <section 
   id="home" 
   className="relative w-full min-h-screen bg-white text-slate-900 flex items-center pt-24 pb-16 overflow-hidden select-none"
 >
- 
+  {/* DIGITAL GRAPHIC MESH (Latar Belakang Putih dengan Grid Sporty) */}
   <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-70">
-   
+    {/* Lampu Sorot Soft Glow (Pastel Tint) */}
     <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#d63384]/5 rounded-full blur-[120px]"></div>
     <div className="absolute bottom-0 right-[-10%] w-[600px] h-[600px] bg-[#0077b6]/5 rounded-full blur-[150px]"></div>
     
-   
+    {/* Garis Grid Linier Abu-abu Tipis Elektrik */}
     <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000004_1px,transparent_1px),linear-gradient(to_bottom,#00000004_1px,transparent_1px)] bg-[size:40px_40px]"></div>
   </div>
 
- 
+  {/* MAIN CONTAINER */}
   <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     
-   
+    {/* SISI KIRI: KONTEN TEKS & AKSI (7 Kolom) */}
     <div className="lg:col-span-7 flex flex-col items-start text-left">
       
-
+      {/* Live Badge Status (Versi Terang) */}
       <div className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200/80 px-3.5 py-1.5 rounded-full mb-6 shadow-sm">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.15em] text-slate-600">Pendaftaran Kelas 2026 Dibuka</span>
       </div>
 
-     
+      {/* HEADLINE SPORTY PUTIH: Menggunakan Gradasi Gelap Premium */}
       <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-[0.9] mb-6 w-full text-slate-900">
         Mulai Langkahmu <br />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700">
           Kuasai Air Dengan
         </span> <br />
         
-   
+        {/* JAVASCRIPT ACTIVE TEXT: Berubah otomatis dengan warna Biru Air Laut yang kontras di latar putih */}
         <span 
           key={keywordIndex} 
           className="inline-block italic text-transparent bg-clip-text bg-gradient-to-r from-[#0077b6] to-[#00b4d8] transition-all duration-500 transform translate-y-0 opacity-100 animate-[fadeInUp_0.4s_ease-out]"
@@ -218,11 +220,14 @@ const programs = [
       <p className="text-slate-500 text-sm sm:text-base md:text-lg mb-10 max-w-xl font-normal leading-relaxed">
         Tirta Jati Swimming Club menghadirkan sistem pelatihan renang profesional, terprogram, dan aman untuk segala tingkat usia dan keahlian siswa.
       </p>
-
+{/* =========================================
+    BERANDA (MOBILE PULSE CARDS - ANIMATED)
+========================================= */}
 <div className="w-full flex flex-col gap-4 mb-16 px-2">
+  {/* ACTION CARDS - MOBILE OPTIMIZED */}
+<div className="flex flex-col gap-4 w-full px-4">
   
- 
-   {/* Card 1: Pilihan Kelas */}
+  {/* Card 1: Pilihan Kelas */}
   <a 
     href="#paket" 
     className="group relative w-full p-6 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 flex justify-between items-center overflow-hidden transition-all duration-300 active:scale-[0.97]"
@@ -259,6 +264,7 @@ const programs = [
   </a>
 </div>
 
+  {/* Indikator Scroll (Animasi Vertikal) */}
   <div className="flex justify-center pt-6">
     <div className="flex flex-col items-center gap-2 text-slate-400 animate-bounce">
       <span className="text-[9px] uppercase font-bold tracking-[0.2em]">Scroll</span>
@@ -272,23 +278,23 @@ const programs = [
 
     </div>
 
-    
+    {/* SISI KANAN: ASYMMETRICAL CARD STACK (Bukan Latar Hitam Lagi) */}
     <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end mt-8 lg:mt-0">
       
-     
+      {/* Bingkai Putih Transparan Premium */}
       <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[2.5rem] p-3 bg-gradient-to-br from-slate-100 to-transparent border border-slate-200/60 overflow-hidden transform md:rotate-2 hover:rotate-0 transition-transform duration-700 shadow-xl shadow-slate-200/50">
         
-      
+       {/* Kontainer Gambar Utama */}
 <div className="w-full h-full rounded-[2rem] overflow-hidden bg-slate-50 relative group">
   <img 
     src="/img/beranda.jpg" 
     alt="Tirta Jati Latihan Renang" 
     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
   />
- 
+  {/* Overlay gradasi tipis */}
   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
   
-
+  {/* Floating Location Tag (DIBUNGKUS DENGAN TAG <a>) */}
   <a 
     href="https://maps.app.goo.gl/dgRmFMANnxYtGSmM6" 
     target="_blank" 
@@ -310,7 +316,7 @@ const programs = [
   </a>
 </div>
 
-       
+        {/* Aksesori Kotak Kecil di Belakang Gambar (Versi Terang) */}
         <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#00b4d8] to-[#90e0ef] rounded-2xl -z-10 transform -rotate-12 hidden sm:block"></div>
       </div>
 
@@ -318,11 +324,13 @@ const programs = [
 
   </div>
 </section>
-     
+      {/* =========================================
+    KEUNGGULAN SECTION (NARRATIVE FLOW)
+========================================= */}
 <section className="bg-[#f8fafc] py-24 px-6 overflow-hidden">
   <div className="max-w-3xl mx-auto text-center">
     
-   
+    {/* Headline dengan Animasi Fade-In */}
     <span className="inline-block text-[#0077b6] font-black uppercase tracking-[0.3em] text-[10px] mb-4 animate-[fadeIn_1s_ease-out]">
       Tirta Jati Swimming Club
     </span>
@@ -332,17 +340,17 @@ const programs = [
       kami membangun kepercayaan diri.
     </h2>
 
-
+    {/* Konten Narasi (Digabung) */}
     <div className="relative group p-8 md:p-12 bg-white rounded-[2rem] shadow-sm border border-slate-100 transition-all duration-700 hover:shadow-2xl hover:shadow-[#0077b6]/5">
       
-    
+      {/* Animasi Garis Samping */}
       <div className="absolute left-0 top-10 bottom-10 w-1 bg-gradient-to-b from-[#0077b6] to-transparent rounded-full opacity-50"></div>
       
       <p className="text-slate-600 leading-relaxed md:text-lg font-medium text-justify md:text-center animate-[slideUp_1.5s_ease-out]">
         Tirta Jati SC hadir dengan memadukan <strong>pelatih berlisensi</strong> dan <strong>kurikulum terstruktur</strong> yang disesuaikan bagi setiap murid, mulai dari tahap adaptasi air hingga teknik atlet. Kami memprioritaskan <strong>keamanan</strong> sebagai fondasi utama di setiap sesi latihan, memastikan setiap individu-baik pemula maupun yang sedang mempersiapkan diri untuk kompetisi-dapat berlatih dengan rasa tenang, aman, dan penuh kegembiraan di dalam air.
       </p>
 
-   
+      {/* Dekorasi Animasi */}
       <div className="mt-10 flex justify-center gap-2">
         <div className="w-2 h-2 rounded-full bg-[#0077b6] animate-pulse"></div>
         <div className="w-2 h-2 rounded-full bg-[#0077b6] animate-pulse delay-300"></div>
@@ -351,7 +359,7 @@ const programs = [
     </div>
   </div>
 
-
+  {/* CSS Animasi (Tambahkan ini di file CSS atau di dalam tag <style>) */}
   <style jsx>{`
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -364,11 +372,13 @@ const programs = [
   `}</style>
 </section>
 
-
+    {/* =========================================
+    PROGRAM KELAS (EDITORIAL DASHBOARD WITH VIEW SWITCHER 2026)
+========================================= */}
 <section id="paket" className="bg-[#f8fafc] py-16 md:py-24 px-4 sm:px-6">
   <div className="max-w-6xl mx-auto">
     
-  
+    {/* Header */}
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
         Program Pelatihan Renang
@@ -378,6 +388,7 @@ const programs = [
       </p>
     </div>
 
+    {/* JAVASCRIPT SWITCHER: Tombol Pengubah Mode Tampilan */}
     <div className="flex justify-center mb-12">
       <div className="bg-slate-200/70 p-1 rounded-xl inline-flex border border-slate-200/30">
         <button
@@ -401,7 +412,7 @@ const programs = [
       </div>
     </div>
 
-  
+    {/* Grid Utama: Kolom Tunggal di HP, 3 Kolom di Laptop */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
       {programs.map((pkg) => (
         <div 
@@ -409,33 +420,33 @@ const programs = [
           className={`group bg-white rounded-[2rem] p-6 md:p-8 border transition-all duration-500 flex flex-col relative overflow-hidden
                      hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.04)] hover:-translate-y-1 ${pkg.themeColor}`}
         >
-         
+          {/* Angka Dekoratif Besar di Background (Ciri UI Premium Tanpa Gambar) */}
           <div className="absolute top-4 right-6 text-7xl md:text-8xl font-black text-slate-100/70 select-none tracking-tighter transition-colors group-hover:text-slate-100">
             {pkg.number}
           </div>
 
-         
+          {/* Konten Kartu */}
           <div className="relative z-10 flex flex-col flex-grow">
             
-         
+            {/* Label Sasaran / Target */}
             <span className={`inline-block text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-md self-start mb-4 ${pkg.badgeBg}`}>
               {pkg.target}
             </span>
 
-         
+            {/* Judul Kelas */}
             <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight mb-6">
               {pkg.title}
             </h3>
 
-           
+            {/* Area Transisi JavaScript (Berubah Berdasarkan Tombol di Atas) */}
             <div className="flex-grow min-h-[140px] md:min-h-[160px]">
               {viewMode === 'ringkasan' ? (
-                
+                // TAMPILAN RINGKASAN
                 <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed animate-[fadeIn_0.3s_ease-out]">
                   {pkg.shortDesc}
                 </p>
               ) : (
-              
+                // TAMPILAN DETAIL MATERI / KURIKULUM
                 <ul className="space-y-3 animate-[fadeIn_0.3s_ease-out]">
                   {pkg.fullKurikulum.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
@@ -449,7 +460,7 @@ const programs = [
               )}
             </div>
 
-          
+            {/* Tombol CTA Dengan Respons Sentuh Jari di HP */}
             <div className="mt-8 pt-6 border-t border-slate-50">
               <a 
                 href={`https://wa.me/6281238096091?text=${encodeURIComponent(`Halo Coach Tirta Jati, saya mau tanya pendaftaran untuk kelas ${pkg.title} (${pkg.target}).`)}`}
@@ -457,10 +468,10 @@ const programs = [
                 rel="noopener noreferrer" 
                 className="w-full flex items-center justify-between bg-slate-900 text-white font-bold py-3.5 px-5 rounded-xl text-sm transition-all duration-300
                            
-                           
+                           /* Animasi Touch Mobile (Mengecil & Berubah Warna Lembut) */
                            active:scale-[0.97] active:bg-slate-800
                            
-                         
+                           /* Animasi Hover Laptop */
                            md:hover:bg-slate-800 md:hover:shadow-md"
               >
                 <span>Tanya Jadwal & Biaya</span>
@@ -477,13 +488,15 @@ const programs = [
 
   </div>
 </section>
-  
+    {/* =========================================
+    COACH SECTION (MIDNIGHT SLATE - COHESIVE BLACK)
+========================================= */}
 <section className="max-w-5xl mx-auto px-6 py-24">
   <div 
     className="group bg-[#0f172a] rounded-[2.5rem] overflow-hidden text-white flex flex-col md:flex-row items-stretch shadow-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-[#0f172a]/20"
   >
     
- 
+    {/* Bagian Foto */}
     <div 
       className="w-full md:w-2/5 relative min-h-[300px] bg-[#1e293b]"
       onClick={() => setSelectedImg("/img/coachimg1.jpg")}
@@ -493,11 +506,11 @@ const programs = [
         alt="Coach Renang" 
         className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
       />
-    
+      {/* Overlay memberikan kesan gelap yang konsisten */}
       <div className="absolute inset-0 bg-[#0f172a]/20 group-hover:opacity-0 transition-opacity"></div>
     </div>
 
-  
+    {/* Bagian Teks */}
     <div className="p-10 md:p-14 w-full md:w-3/5 flex flex-col justify-center bg-[#0f172a]">
       <span className="text-[#94a3b8] font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">
         Mengenal Coach
@@ -514,7 +527,7 @@ const programs = [
         </p>
       </div>
 
-    
+      {/* Aksen garis putih/biru muda */}
       <div className="mt-10">
         <div className="w-12 h-1 bg-[#38bdf8] rounded-full"></div>
       </div>
@@ -523,7 +536,9 @@ const programs = [
 </section>
       
 
-    
+      {/* =========================================
+    GALERI SECTION (MIDNIGHT SLATE THEME)
+========================================= */}
 <section id="galeri" className="max-w-6xl mx-auto px-4 py-24 border-t border-slate-100">
   <div className="text-center mb-16">
     {/* Mengganti warna Pink menjadi biru muda yang kontras dengan tema gelap */}
@@ -532,7 +547,7 @@ const programs = [
   </div>
 
   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-  
+    {/* Instagram Reel Container */}
     <div className="relative overflow-hidden rounded-3xl bg-slate-100 aspect-square border border-slate-200">
       <iframe 
         src="https://www.instagram.com/reel/DDXIRIcys21/embed" 
@@ -543,7 +558,7 @@ const programs = [
       ></iframe>
     </div>
 
-   
+    {/* Foto Grid */}
     {["/img/img1.jpg", "/img/img2.jpg", "/img/img3.jpg"].map((img, idx) => (
       <div 
         key={idx} 
@@ -556,7 +571,7 @@ const programs = [
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
         />
         
-      
+        {/* Hover Overlay dengan warna Midnight Slate */}
         <div className="absolute inset-0 bg-[#0f172a]/0 group-hover:bg-[#0f172a]/30 transition-all duration-300 flex items-center justify-center">
           <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -568,7 +583,9 @@ const programs = [
     ))}
   </div>
 </section>
-    
+      {/* =========================================
+          FAQ SECTION
+      ========================================= */}
       <section id="faq" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-3xl mx-auto py-24 px-4 border-t border-slate-100">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-900">Pertanyaan Umum (FAQ)</h2>
@@ -590,7 +607,9 @@ const programs = [
           ))}
         </div>
       </section>
-
+{/* =========================================
+    FOOTER (MIDNIGHT SLATE THEME)
+========================================= */}
 <footer className="bg-[#0f172a] border-t border-slate-800 text-slate-400 pt-24 pb-12 px-6 mt-12 rounded-t-[3rem]">
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-800 pb-16 mb-12">
     <div>
@@ -631,12 +650,15 @@ const programs = [
     <p className="text-xs">Created with <span className="text-[#38bdf8]">♥</span> by swim coach @buddz</p>
   </div>
 </footer>
-      
+      {/* =========================================
+          MODAL GALERI (LIGHTBOX ZOOM)
+      ========================================= */}
       {selectedImg && (
         <div 
           className="fixed inset-0 z-[9999] bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 cursor-pointer opacity-100 transition-opacity duration-300"
           onClick={() => setSelectedImg(null)}
         >
+          {/* Tombol Close (X) */}
           <button 
             className="absolute top-6 right-6 p-2 bg-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all focus:outline-none"
             onClick={() => setSelectedImg(null)}
@@ -646,7 +668,7 @@ const programs = [
             </svg>
           </button>
           
-        
+          {/* Gambar yang di-zoom */}
           <img 
             src={selectedImg} 
             alt="Dokumentasi Zoom" 
