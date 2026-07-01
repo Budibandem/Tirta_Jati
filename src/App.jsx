@@ -237,26 +237,27 @@ const programs = [
   </a>
 
   
-<a 
-  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin konsultasi mengenai program latihan renang. Bisa minta bantuannya untuk info kelas yang tersedia? Terima kasih.")}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="relative w-full p-6 bg-[#0f172a] rounded-3xl flex justify-between items-center transition-transform active:scale-[0.98] shadow-lg"
->
-  <div className="relative">
-    <p className="text-[10px] font-black text-[#64748b] uppercase tracking-[0.2em] mb-1">Hubungi Kami</p>
-    <h3 className="text-lg font-black text-white">Konsultasi Coach</h3>
-  </div>
-  
-
-  <div className="relative w-10 h-10 flex items-center justify-center">
-    <div className="absolute w-10 h-10 bg-[#38bdf8]/30 rounded-full animate-ping"></div>
-    <div className="w-6 h-6 bg-[#38bdf8] rounded-full flex items-center justify-center">
-      <span className="text-[#0f172a] text-[10px]">💬</span>
+ {/* Card 2: Konsultasi WhatsApp */}
+  <a 
+    href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin konsultasi mengenai program latihan renang. Bisa minta bantuannya untuk info kelas yang tersedia? Terima kasih.")}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative w-full p-6 bg-[#0f172a] rounded-3xl flex justify-between items-center transition-all duration-300 active:scale-[0.97] shadow-lg shadow-slate-900/20"
+  >
+    <div className="relative">
+      <p className="text-[10px] font-black text-[#64748b] uppercase tracking-[0.2em] mb-1">Hubungi Kami</p>
+      <h3 className="text-xl font-black text-white">Konsultasi Coach</h3>
     </div>
-  </div>
-</a>
-
+    
+    {/* Ikon WhatsApp (Menggunakan SVG Resmi seperti image_a9e6e5.png) */}
+    <div className="relative w-10 h-10 flex items-center justify-center">
+      <div className="absolute w-10 h-10 bg-[#25D366]/20 rounded-full animate-ping"></div>
+      <svg className="w-9 h-9 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.044 2C6.485 2 2 6.486 2 12.044c0 1.83.473 3.593 1.365 5.155L2 22l4.985-1.344a9.92 9.92 0 0 0 5.059 1.388h.001c5.558 0 10.044-4.486 10.044-10.044C22.089 6.486 17.603 2 12.044 2zm0 1.826c4.542 0 8.218 3.676 8.218 8.218 0 4.541-3.676 8.217-8.218 8.217a8.16 8.16 0 0 1-4.275-1.205l-.307-.183-3.181.857.85-3.111-.198-.328a8.17 8.17 0 0 1-1.251-4.346c0-4.542 3.676-8.218 8.217-8.218zM8.397 7.712c-.173-.385-.357-.393-.526-.401-.136-.007-.291-.007-.446-.007-.155 0-.406.059-.619.293-.213.234-.813.794-.813 1.936s.832 2.247.947 2.405c.115.158 1.638 2.503 3.967 3.509 1.969.847 2.373.678 2.802.634.429-.044 1.393-.57 1.587-1.121.194-.551.194-1.024.135-1.121-.059-.097-.213-.155-.446-.272s-1.393-.688-1.609-.766c-.216-.078-.373-.117-.53.117-.156.234-.606.766-.743.922-.137.156-.273.175-.506.058-.233-.117-.984-.362-1.874-1.157-.693-.617-1.161-1.378-1.297-1.631-.136-.253-.015-.39.111-.516.114-.112.253-.291.379-.437.126-.146.168-.253.252-.428.084-.175.042-.33-.021-.467-.063-.137-.567-1.366-.778-1.87z"/>
+      </svg>
+    </div>
+  </a>
+</div>
 
   <div className="flex justify-center pt-6">
     <div className="flex flex-col items-center gap-2 text-slate-400 animate-bounce">
