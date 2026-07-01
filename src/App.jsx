@@ -222,22 +222,22 @@ const programs = [
 <div className="w-full flex flex-col gap-4 mb-16 px-2">
   
  
+   {/* Card 1: Pilihan Kelas */}
   <a 
     href="#paket" 
-    className="relative group w-full p-6 bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 flex justify-between items-center overflow-hidden transition-transform active:scale-[0.98]"
+    className="group relative w-full p-6 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 flex justify-between items-center overflow-hidden transition-all duration-300 active:scale-[0.97]"
   >
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0077b6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
     <div className="relative z-10">
       <p className="text-[10px] font-black text-[#0077b6] uppercase tracking-[0.2em] mb-1">Eksplorasi</p>
-      <h3 className="text-lg font-black text-slate-900">Program Kelas</h3>
+      <h3 className="text-xl font-black text-slate-900">Program Kelas</h3>
     </div>
-    <div className="w-10 h-10 rounded-full bg-[#0077b6] flex items-center justify-center text-white animate-[bounce_2s_infinite]">
+    {/* Ikon panah dibuat lebih stabil agar tidak mengganggu fokus */}
+    <div className="w-10 h-10 rounded-full bg-[#0077b6] flex items-center justify-center text-white shadow-md shadow-[#0077b6]/20">
       <span className="text-lg">→</span>
     </div>
   </a>
 
-  
- {/* Card 2: Konsultasi WhatsApp */}
+  {/* Card 2: Konsultasi WhatsApp */}
   <a 
     href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin konsultasi mengenai program latihan renang. Bisa minta bantuannya untuk info kelas yang tersedia? Terima kasih.")}`}
     target="_blank"
