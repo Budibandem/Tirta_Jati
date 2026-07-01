@@ -41,9 +41,15 @@ function App() {
       clearTimeout(timer);
       observer.disconnect(); 
     };
+    
   }, []);
   
-const keywords = ["Keberanian", "Teknik Benar", "Prestasi Juara", "Kepercayaan Diri"];
+const keywords = [
+  "Teknik yang Tepat", 
+  "Kepercayaan Diri", 
+  "Kenyamanan di Air", 
+  "Metode yang Aman"
+];
 const [keywordIndex, setKeywordIndex] = React.useState(0);
 
 React.useEffect(() => {
@@ -112,6 +118,8 @@ const programs = [
   ];
 
   return (
+
+    
   
     // 1. Hapus "pt-20" di sini, biarkan konten dimulai dari atas
     <div className="font-sans bg-[#f8fafc] text-slate-800 min-h-screen scroll-smooth overflow-x-hidden selection:bg-[#7cb5c8]/30 selection:text-slate-900">
@@ -125,8 +133,6 @@ const programs = [
   <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
   <div className="leading-none text-left">
     <span className="font-black text-[#0077b6] text-lg block tracking-tight">TIRTA JATI SC</span>
-    {/* Mengubah warna dari Pink menjadi biru muda yang segar atau slate untuk kesan premium */}
-    <span className="text-[9px] uppercase font-bold tracking-[0.2em] text-[#00b4d8]">Di air kita jaya</span>
   </div>
 </a>
 
@@ -174,154 +180,66 @@ const programs = [
 {/* =========================================
     HERO SECTION (2026 ULTRA-SPORTY LIGHT PREMIUM THEME)
 ========================================= */}
-<section 
-  id="home" 
-  className="relative w-full min-h-screen bg-white text-slate-900 flex items-center pt-24 pb-16 overflow-hidden select-none"
->
-  {/* DIGITAL GRAPHIC MESH (Latar Belakang Putih dengan Grid Sporty) */}
-  <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-70">
-    {/* Lampu Sorot Soft Glow (Pastel Tint) */}
-    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#d63384]/5 rounded-full blur-[120px]"></div>
-    <div className="absolute bottom-0 right-[-10%] w-[600px] h-[600px] bg-[#0077b6]/5 rounded-full blur-[150px]"></div>
+<section id="home" className="relative w-full min-h-screen flex items-center py-20 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
     
-    {/* Garis Grid Linier Abu-abu Tipis Elektrik */}
-    <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000004_1px,transparent_1px),linear-gradient(to_bottom,#00000004_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-  </div>
-
-  {/* MAIN CONTAINER */}
-  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    
-    {/* SISI KIRI: KONTEN TEKS & AKSI (7 Kolom) */}
-    <div className="lg:col-span-7 flex flex-col items-start text-left">
-      
-      {/* Live Badge Status (Versi Terang) */}
-      <div className="inline-flex items-center gap-2 bg-slate-100 border border-slate-200/80 px-3.5 py-1.5 rounded-full mb-6 shadow-sm">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.15em] text-slate-600">Pendaftaran Kelas 2026 Dibuka</span>
-      </div>
-
-      {/* HEADLINE SPORTY PUTIH: Menggunakan Gradasi Gelap Premium */}
-      <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-[0.9] mb-6 w-full text-slate-900">
-        Mulai Langkahmu <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700">
-          Kuasai Air Dengan
-        </span> <br />
-        
-        {/* JAVASCRIPT ACTIVE TEXT: Berubah otomatis dengan warna Biru Air Laut yang kontras di latar putih */}
+    {/* Kolom Teks */}
+    <div className="lg:col-span-7 space-y-6">
+      {/* Judul utama diturunkan sedikit untuk mobile (text-3xl) */}
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+        <span className="text-sm md:text-lg font-medium text-slate-500 block mb-2 uppercase tracking-[0.1em]">
+          Selamat Datang di Tirta Jati SC
+        </span>
+        <span className="block text-slate-800">MULAI LANGKAHMU <br className="hidden md:block" /> DENGAN</span>
         <span 
-          key={keywordIndex} 
-          className="inline-block italic text-transparent bg-clip-text bg-gradient-to-r from-[#0077b6] to-[#00b4d8] transition-all duration-500 transform translate-y-0 opacity-100 animate-[fadeInUp_0.4s_ease-out]"
+          key={keywordIndex}
+          className="block italic text-[#0077b6] animate-[fadeInUp_0.4s_ease-out]"
         >
-          {keywords[keywordIndex]}.
+          {keywords[keywordIndex]}
         </span>
       </h1>
 
-      {/* DESKRIPSI (Warna Abu-abu Gelap Lembut) */}
-      <p className="text-slate-500 text-sm sm:text-base md:text-lg mb-10 max-w-xl font-normal leading-relaxed">
+      {/* Deskripsi diperkecil agar tidak memenuhi layar HP */}
+      <p className="text-sm md:text-base text-slate-600 max-w-lg leading-relaxed border-l-2 border-blue-500 pl-4 md:pl-6">
         Tirta Jati Swimming Club menghadirkan sistem pelatihan renang profesional, terprogram, dan aman untuk segala tingkat usia dan keahlian siswa.
       </p>
-{/* =========================================
-    BERANDA (MOBILE PULSE CARDS - ANIMATED)
-========================================= */}
-<div className="w-full flex flex-col gap-4 mb-16 px-2">
-  {/* ACTION CARDS - MOBILE OPTIMIZED */}
-<div className="flex flex-col gap-4 w-full px-4">
-  
-  {/* Card 1: Pilihan Kelas */}
-  <a 
-    href="#paket" 
-    className="group relative w-full p-6 bg-white rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/40 flex justify-between items-center overflow-hidden transition-all duration-300 active:scale-[0.97]"
-  >
-    <div className="relative z-10">
-      <p className="text-[10px] font-black text-[#0077b6] uppercase tracking-[0.2em] mb-1">Eksplorasi</p>
-      <h3 className="text-xl font-black text-slate-900">Program Kelas</h3>
-    </div>
-    {/* Ikon panah dibuat lebih stabil agar tidak mengganggu fokus */}
-    <div className="w-10 h-10 rounded-full bg-[#0077b6] flex items-center justify-center text-white shadow-md shadow-[#0077b6]/20">
-      <span className="text-lg">→</span>
-    </div>
-  </a>
 
-  {/* Card 2: Konsultasi WhatsApp */}
-  <a 
-    href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati, saya ingin konsultasi mengenai program latihan renang. Bisa minta bantuannya untuk info kelas yang tersedia? Terima kasih.")}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative w-full p-6 bg-[#0f172a] rounded-3xl flex justify-between items-center transition-all duration-300 active:scale-[0.97] shadow-lg shadow-slate-900/20"
-  >
-    <div className="relative">
-      <p className="text-[10px] font-black text-[#64748b] uppercase tracking-[0.2em] mb-1">Hubungi Kami</p>
-      <h3 className="text-xl font-black text-white">Konsultasi Coach</h3>
-    </div>
-    
-    {/* Ikon WhatsApp (Menggunakan SVG Resmi seperti image_a9e6e5.png) */}
-    <div className="relative w-10 h-10 flex items-center justify-center">
-      <div className="absolute w-10 h-10 bg-[#25D366]/20 rounded-full animate-ping"></div>
-      <svg className="w-9 h-9 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.044 2C6.485 2 2 6.486 2 12.044c0 1.83.473 3.593 1.365 5.155L2 22l4.985-1.344a9.92 9.92 0 0 0 5.059 1.388h.001c5.558 0 10.044-4.486 10.044-10.044C22.089 6.486 17.603 2 12.044 2zm0 1.826c4.542 0 8.218 3.676 8.218 8.218 0 4.541-3.676 8.217-8.218 8.217a8.16 8.16 0 0 1-4.275-1.205l-.307-.183-3.181.857.85-3.111-.198-.328a8.17 8.17 0 0 1-1.251-4.346c0-4.542 3.676-8.218 8.217-8.218zM8.397 7.712c-.173-.385-.357-.393-.526-.401-.136-.007-.291-.007-.446-.007-.155 0-.406.059-.619.293-.213.234-.813.794-.813 1.936s.832 2.247.947 2.405c.115.158 1.638 2.503 3.967 3.509 1.969.847 2.373.678 2.802.634.429-.044 1.393-.57 1.587-1.121.194-.551.194-1.024.135-1.121-.059-.097-.213-.155-.446-.272s-1.393-.688-1.609-.766c-.216-.078-.373-.117-.53.117-.156.234-.606.766-.743.922-.137.156-.273.175-.506.058-.233-.117-.984-.362-1.874-1.157-.693-.617-1.161-1.378-1.297-1.631-.136-.253-.015-.39.111-.516.114-.112.253-.291.379-.437.126-.146.168-.253.252-.428.084-.175.042-.33-.021-.467-.063-.137-.567-1.366-.778-1.87z"/>
-      </svg>
-    </div>
-  </a>
-</div>
-
-  {/* Indikator Scroll (Animasi Vertikal) */}
-  <div className="flex justify-center pt-6">
-    <div className="flex flex-col items-center gap-2 text-slate-400 animate-bounce">
-      <span className="text-[9px] uppercase font-bold tracking-[0.2em]">Scroll</span>
-      <div className="w-[1px] h-8 bg-gradient-to-b from-slate-400 to-transparent"></div>
-    </div>
-  </div>
-
-</div>
-
-      
-
+      <div className="flex gap-4 pt-2">
+        <a href="#paket" className="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-[#0077b6] transition-all text-sm">Daftar Sekarang</a>
+      </div>
     </div>
 
-    {/* SISI KANAN: ASYMMETRICAL CARD STACK (Bukan Latar Hitam Lagi) */}
-    <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end mt-8 lg:mt-0">
-      
-      {/* Bingkai Putih Transparan Premium */}
-      <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-[2.5rem] p-3 bg-gradient-to-br from-slate-100 to-transparent border border-slate-200/60 overflow-hidden transform md:rotate-2 hover:rotate-0 transition-transform duration-700 shadow-xl shadow-slate-200/50">
+    {/* Kolom Visual */}
+    <div className="lg:col-span-5 relative">
+      <div className="relative z-10 w-full h-[350px] md:h-[500px] overflow-hidden rounded-[2rem] shadow-xl">
+        <img src="/img/beranda.jpg" alt="Swim" className="w-full h-full object-cover" />
         
-       {/* Kontainer Gambar Utama */}
-<div className="w-full h-full rounded-[2rem] overflow-hidden bg-slate-50 relative group">
-  <img 
-    src="/img/beranda.jpg" 
-    alt="Tirta Jati Latihan Renang" 
-    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
-  />
-  {/* Overlay gradasi tipis */}
-  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
-  
-  {/* Floating Location Tag (DIBUNGKUS DENGAN TAG <a>) */}
-  <a 
-    href="https://maps.app.goo.gl/dgRmFMANnxYtGSmM6" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg transition-all duration-300 hover:bg-white hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] block"
-  >
-    <div className="flex justify-between items-center">
-      <div>
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#0077b6] block">Lokasi Klub</span>
-        <span className="text-xs sm:text-sm font-bold text-slate-800 mt-0.5 block">Tirta Jati Swimming Pool</span>
-      </div>
-      <div className="w-8 h-8 rounded-full bg-[#0077b6]/10 flex items-center justify-center text-[#0077b6]">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
+        {/* Card Lokasi Minimalis */}
+        <a 
+          href="https://maps.app.goo.gl/ayNTCDePa7tD66wv9" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/50 group transition-all hover:bg-white"
+        >
+          <div className="flex-shrink-0">
+            <svg className="w-6 h-6 md:w-8 md:h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          
+          <div className="flex-grow">
+            <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-slate-500">Lokasi Utama</p>
+            <p className="text-sm md:text-base font-bold text-slate-900 leading-tight">Bukit Jati, Gianyar</p>
+          </div>
+          
+          <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px]">
+              →
+            </div>
+          </div>
+        </a>
       </div>
     </div>
-  </a>
-</div>
-
-        {/* Aksesori Kotak Kecil di Belakang Gambar (Versi Terang) */}
-        <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#00b4d8] to-[#90e0ef] rounded-2xl -z-10 transform -rotate-12 hidden sm:block"></div>
-      </div>
-
-    </div>
-
   </div>
 </section>
       {/* =========================================
@@ -618,13 +536,21 @@ const programs = [
         Ambil langkah pertama untuk belajar berenang dengan percaya diri bersama pelatih profesional kami.
       </p>
       <a 
-        href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="inline-block bg-[#38bdf8] text-[#0f172a] px-8 py-3 rounded-full font-bold hover:bg-white transition-colors"
-      >
-        Chat WhatsApp
-      </a>
+  href={`https://wa.me/6281238096091?text=${encodeURIComponent("Halo Coach Tirta Jati Swimming Club, saya ingin berkonsultasi mengenai kelas renang. Mohon infonya ya, terima kasih!")}`}
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="inline-flex items-center gap-4 group transition-all hover:opacity-80"
+>
+  {/* Ikon WhatsApp besar */}
+  <svg className="w-10 h-10" fill="#25D366" viewBox="0 0 24 24">
+    <path d="M12.031 6.172c-3.328 0-6.031 2.703-6.031 6.031 0 1.063.281 2.078.797 2.953l-.844 3.141 3.234-.844c.844.469 1.828.703 2.813.703 3.328 0 6.031-2.703 6.031-6.031 0-3.328-2.703-6.031-6.031-6.031zm0 10.969c-.891 0-1.766-.234-2.531-.672l-.188-.109-1.953.5.516-1.875-.125-.203c-.5-0.797-.766-1.719-.766-2.656 0-2.813 2.297-5.109 5.109-5.109s5.109 2.297 5.109 5.109c0 2.813-2.297 5.109-5.109 5.109zM15.438 13.938c-.141-.078-.844-.422-.969-.469s-.219-.078-.313.078c-.094.156-.375.469-.453.563-.078.094-.156.109-.313.031s-.672-.25-1.281-.797c-.469-.422-.781-.938-.875-1.094s-.094-.234-.047-.328c.047-.063.094-.156.141-.234.047-.078.063-.141.094-.219.031-.078.016-.141-.016-.203s-.313-.75-.438-1.016c-.125-.266-.25-.234-.313-.234h-.281c-.094 0-.25.031-.375.156s-.484.469-.484 1.156c0 .688.5 1.344.563 1.438s.938 1.438 2.266 2.016c.313.141.563.219.75.281.313.109.594.094.813.063.25-.031.844-.344.969-.672s.125-.609.094-.672c-.031-.063-.094-.094-.234-.156z"/>
+  </svg>
+  
+  {/* Tulisan yang tadi tidak kelihatan, sekarang sudah dimasukkan di sini */}
+  <span className="text-lg font-bold text-white hover:underline">
+    Chat via WhatsApp
+  </span>
+</a>
     </div>
     
     <div className="flex flex-col md:items-end justify-end space-y-4">
@@ -647,7 +573,7 @@ const programs = [
 
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm font-light text-slate-500 gap-6">
     <p>© {new Date().getFullYear()} Tirta Jati SC.</p>
-    <p className="text-xs">Created with <span className="text-[#38bdf8]">♥</span> by swim coach @buddz</p>
+    <p className="text-xs">Created with <span className="text-[#38bdf8]"></span> by swim coach @buddz</p>
   </div>
 </footer>
       {/* =========================================
