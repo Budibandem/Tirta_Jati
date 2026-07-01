@@ -1,48 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
-  
-  const [isScrolled, setIsScrolled] = useState(false);
   const [clickedFeature, setClickedFeature] = useState(null);
 
-  useEffect(() => {
-    // 1. Handle Navbar Scroll
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
 
-    // 2. Handle Animasi Timbul
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove('opacity-0', 'translate-y-12');
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            obs.unobserve(entry.target); // Berhenti mengamati setelah muncul
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    // Beri jeda 100ms agar DOM ter-render penuh sebelum ditangkap querySelector
-    const timer = setTimeout(() => {
-      const elements = document.querySelectorAll('.timbul-scroll');
-      elements.forEach((el) => observer.observe(el));
-    }, 100);
-
-    // Cleanup function
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-      observer.disconnect(); 
-    };
-    
-  }, []);
   
 const keywords = [
   "Teknik yang Tepat", 
@@ -264,9 +227,9 @@ const programs = [
       {/* Animasi Garis Samping */}
       <div className="absolute left-0 top-10 bottom-10 w-1 bg-gradient-to-b from-[#0077b6] to-transparent rounded-full opacity-50"></div>
       
-      <p className="text-slate-600 leading-relaxed md:text-lg font-medium text-justify md:text-center animate-[slideUp_1.5s_ease-out]">
-        Tirta Jati SC hadir dengan memadukan <strong>pelatih berlisensi</strong> dan <strong>kurikulum terstruktur</strong> yang disesuaikan bagi setiap murid, mulai dari tahap adaptasi air hingga teknik atlet. Kami memprioritaskan <strong>keamanan</strong> sebagai fondasi utama di setiap sesi latihan, memastikan setiap individu-baik pemula maupun yang sedang mempersiapkan diri untuk kompetisi-dapat berlatih dengan rasa tenang, aman, dan penuh kegembiraan di dalam air.
-      </p>
+      <p className="text-base md:text-lg text-slate-600 leading-relaxed md:leading-loose">
+  Mari belajar berenang bersama Tirta Jati SC melalui bimbingan pelatih berlisensi serta program yang disesuaikan dengan kebutuhan Anda. Kami memastikan setiap sesi latihan berlangsung aman, sehingga siapa pun bisa belajar dengan rasa tenang dan percaya diri. Fokus kami adalah menciptakan ruang latihan yang menyenangkan bagi semua orang, dari pemula hingga atlet yang sedang mengejar prestasi.
+</p>
 
       {/* Dekorasi Animasi */}
       <div className="mt-10 flex justify-center gap-2">
@@ -501,30 +464,46 @@ const programs = [
     ))}
   </div>
 </section>
-      {/* =========================================
-          FAQ SECTION
-      ========================================= */}
-      <section id="faq" className="timbul-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out max-w-3xl mx-auto py-24 px-4 border-t border-slate-100">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900">Pertanyaan Umum (FAQ)</h2>
-          <p className="text-slate-500 text-sm mt-4 font-light">Hal-hal yang sering ditanyakan sebelum memulai pendaftaran latihan.</p>
-        </div>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-[#7cb5c8]/50 transition-colors">
-              <button onClick={() => setActiveFaq(activeFaq === index ? null : index)} className="w-full text-left px-6 py-5 font-medium text-slate-800 flex justify-between items-center focus:outline-none">
-                <span className="pr-4">{faq.q}</span>
-                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaq === index ? 'bg-slate-50 text-[#d63384]' : 'bg-transparent text-slate-400'}`}>
-                  <svg className={`w-4 h-4 transform transition-transform duration-300 ${activeFaq === index ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-                </span>
-              </button>
-              {activeFaq === index && (
-                <div className="px-6 pb-6 text-sm text-slate-500 font-light leading-relaxed">{faq.a}</div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+     {/* =========================================
+    FAQ SECTION
+========================================= */}
+<section id="faq" className="max-w-3xl mx-auto py-24 px-4 border-t border-slate-100">
+  <div className="text-center mb-16">
+    <h2 className="text-3xl font-bold text-slate-900">Pertanyaan Umum (FAQ)</h2>
+    <p className="text-slate-500 text-sm mt-4 font-light">Hal-hal yang sering ditanyakan sebelum memulai pendaftaran latihan.</p>
+  </div>
+  
+  <div className="space-y-4">
+    {faqs.map((faq, index) => (
+      <div key={index} className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-slate-300 transition-colors">
+        <button 
+          onClick={() => setActiveFaq(activeFaq === index ? null : index)} 
+          className="w-full text-left px-6 py-5 font-medium text-slate-800 flex justify-between items-center focus:outline-none"
+        >
+          <span className="pr-4">{faq.q}</span>
+          
+          {/* Warna diubah menjadi biru netral sesuai tema website */}
+          <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaq === index ? 'bg-slate-100 text-slate-900' : 'bg-transparent text-slate-400'}`}>
+            <svg 
+              className={`w-4 h-4 transform transition-transform duration-300 ${activeFaq === index ? 'rotate-180' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </button>
+        
+        {activeFaq === index && (
+          <div className="px-6 pb-6 text-sm text-slate-500 font-light leading-relaxed">
+            {faq.a}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
 {/* =========================================
     FOOTER (MIDNIGHT SLATE THEME)
 ========================================= */}
