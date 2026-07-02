@@ -181,9 +181,19 @@ const programs = [
   href="https://maps.app.goo.gl/ayNTCDePa7tD66wv9" 
   target="_blank" 
   rel="noopener noreferrer"
-  // Menambahkan class 'animate-breathe' agar selalu bergerak halus
-  className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/50 shadow-lg animate-breathe"
+  className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/50 shadow-lg"
+  style={{
+    animation: 'breathe 3s ease-in-out infinite'
+  }}
 >
+  {/* Tambahkan tag style ini di bawah section atau di dalam file CSS Anda */}
+  <style>{`
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+  `}</style>
+
   <div className="flex-shrink-0">
     <svg className="w-6 h-6 md:w-8 md:h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
