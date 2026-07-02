@@ -103,7 +103,6 @@ const programs = [
     <nav id="navbar-menu" className="hidden md:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest text-slate-600">
       <a href="#home" className="hover:text-[#0077b6] transition-colors">Beranda</a>
       <a href="#paket" className="hover:text-[#0077b6] transition-colors">Program</a>
-      <a href="#lokasi" className="hover:text-[#0077b6] transition-colors">Lokasi</a>
       <a href="#faq" className="hover:text-[#0077b6] transition-colors">FAQ</a>
       
       {/* Tombol Hubungi Coach (Diselaraskan dengan gaya tombol beranda) */}
@@ -179,28 +178,29 @@ const programs = [
         
         {/* Card Lokasi Minimalis */}
         <a 
-          href="https://maps.app.goo.gl/ayNTCDePa7tD66wv9" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/50 group transition-all hover:bg-white"
-        >
-          <div className="flex-shrink-0">
-            <svg className="w-6 h-6 md:w-8 md:h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-          </div>
-          
-          <div className="flex-grow">
-            <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-slate-500">Lokasi Utama</p>
-            <p className="text-sm md:text-base font-bold text-slate-900 leading-tight">Bukit Jati, Gianyar</p>
-          </div>
-          
-          <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px]">
-              →
-            </div>
-          </div>
-        </a>
+  href="https://maps.app.goo.gl/ayNTCDePa7tD66wv9" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  // Menambahkan class 'animate-breathe' agar selalu bergerak halus
+  className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl flex items-center gap-3 border border-white/50 shadow-lg animate-breathe"
+>
+  <div className="flex-shrink-0">
+    <svg className="w-6 h-6 md:w-8 md:h-8 text-rose-600" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    </svg>
+  </div>
+  
+  <div className="flex-grow">
+    <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-slate-500">Lokasi Utama</p>
+    <p className="text-sm md:text-base font-bold text-slate-900 leading-tight">Kolam Renang Bukit Jati, Gianyar</p>
+  </div>
+  
+  <div className="flex-shrink-0">
+    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px]">
+      →
+    </div>
+  </div>
+</a>
       </div>
     </div>
   </div>
