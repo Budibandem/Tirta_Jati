@@ -60,9 +60,9 @@ const programs = [
   {
     id: 3,
     number: "03",
-    title: "Privat Eksklusif",
+    title: "Privat",
     target: "1 Pelatih khusus untuk 1 Siswa (Semua Umur)",
-    shortDesc: "Solusi terbaik untuk hasil yang cepat dan privat penuh. Kurikulum disesuaikan 100% dengan kemampuan Anda, serta jadwal latihan yang sepenuhnya fleksibel mengikuti waktu luang Anda.",
+    shortDesc: "Solusi terbaik untuk hasil yang cepat dan privat penuh. program disesuaikan 100% dengan kemampuan Anda, serta jadwal latihan yang sepenuhnya fleksibel mengikuti waktu luang Anda.",
     fullKurikulum: [
       "Pendampingan privat 1-on-1 tanpa gangguan",
       "Bebas pilih hari & jam latihan sendiri",
@@ -279,7 +279,7 @@ const programs = [
               ? 'bg-white text-slate-900 shadow-sm' 
               : 'text-slate-600 hover:text-slate-900'}`}
         >
-          Lihat Ringkasan Kelas
+          Pilihan Kelas
         </button>
         <button
           onClick={() => setViewMode('kurikulum')}
