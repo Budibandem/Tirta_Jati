@@ -205,11 +205,6 @@ const programs = [
     <p className="text-sm md:text-base font-bold text-slate-900 leading-tight">Kolam Renang Bukit Jati, Gianyar</p>
   </div>
   
-  <div className="flex-shrink-0">
-    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-900 flex items-center justify-center text-white text-[10px]">
-      →
-    </div>
-  </div>
 </a>
       </div>
     </div>
